@@ -15,7 +15,7 @@
         "selector": "Öğe seçici",
         "selectorOptions": "Seçici seçenekleri",
         "timeout": "Zaman aşımı (milisaniye)",
-        "noPermission": "Automa, bu işlemi gerçekleştirmek için yeterli izne sahip değil",
+        "noPermission": "Turium, bu işlemi gerçekleştirmek için yeterli izne sahip değil",
         "grantPermission": "İzni ver",
         "action": "Eylem",
         "element": {
@@ -282,7 +282,7 @@
           "addFile": "Dosya ekle",
           "onlyURL": "Firefox tarayıcısında yalnızca URL'den dosya yükleme desteklenir",
           "requirement": "Bu bloku kullanmadan önce gereksinimleri okuyun",
-          "noFileAccess": "Automa dosyalara erişim izni bulunmamaktadır"
+          "noFileAccess": "Turium dosyalara erişim izni bulunmamaktadır"
       },
       "browser-event": {
         "name": "Tarayıcı Olayı",
@@ -349,7 +349,7 @@
           "targetWebsite": "Hedef öğenin bulunduğu web sitesinin Eşleşme Deseni (Daha fazla Eşleşme Deseni örneğini görmek için tıklayın)",
           "baseEl": {
             "title": "Temel öğe (isteğe bağlı)",
-            "description": "Bu öğe değiştiğinde Automa hedef öğeyi izlemeyi yeniden başlatır"
+            "description": "Bu öğe değiştiğinde Turium hedef öğeyi izlemeyi yeniden başlatır"
           },
           "subtree": {
             "title": "Alt ağacı dahil et",

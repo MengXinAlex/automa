@@ -251,7 +251,7 @@
   >
     <template v-if="activeWorkflowModal.title" #header>
       {{ activeWorkflowModal.title }}
-      <a
+      <!-- <a
         v-if="activeWorkflowModal.docs"
         :title="t('common.docs')"
         :href="activeWorkflowModal.docs"
@@ -259,7 +259,7 @@
         class="inline-block align-middle"
       >
         <v-remixicon name="riInformationLine" size="20" />
-      </a>
+      </a> -->
     </template>
     <component
       :is="activeWorkflowModal.component"
@@ -1439,7 +1439,7 @@ async function pasteCopiedElements(position) {
     permissions: ['clipboardRead'],
   });
   if (!permission) {
-    toast.error('Automa require clipboard permission to paste blocks');
+    toast.error('Turium require clipboard permission to paste blocks');
     return;
   }
 
@@ -1548,7 +1548,7 @@ function onBeforeLeave() {
 
 useHead({
   title: () =>
-    `${workflow.value?.name} ${isPackage ? 'package' : 'workflow'}` || 'Automa',
+    `${workflow.value?.name} ${isPackage ? 'package' : 'workflow'}` || 'Turium',
 });
 const shortcut = useShortcut([
   getShortcut('editor:toggle-sidebar', toggleSidebar),

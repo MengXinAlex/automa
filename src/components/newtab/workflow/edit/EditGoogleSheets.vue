@@ -48,7 +48,7 @@
       rel="noopener"
       class="ml-1 inline-block text-sm leading-tight"
     >
-      Automa doesn't have access to the spreadsheet
+      Turium doesn't have access to the spreadsheet
       <v-remixicon name="riInformationLine" size="18" class="inline" />
     </a>
     <edit-autocomplete v-if="!['create', 'add-sheet'].includes(data.type)">

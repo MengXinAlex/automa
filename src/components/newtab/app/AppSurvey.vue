@@ -37,15 +37,15 @@ import dayjs from '@/lib/dayjs';
 const modalTypes = {
   testimonial: {
     title: 'Hi There 👋',
-    body: 'Thank you for using Automa, and if you have a great experience. Would you like to give us a testimonial?',
+    body: 'Thank you for using Turium, and if you have a great experience. Would you like to give us a testimonial?',
     button: 'Give Testimonial',
-    url: 'https://testimonial.to/automa',
+    url: 'https://www.turium.ai/',
   },
   survey: {
     title: "How do you think we're doing?",
-    body: 'To help us make Automa as best it can be, we need a few minutes of your time to get your feedback.',
+    body: 'To help us make Turium as best it can be, we need a few minutes of your time to get your feedback.',
     button: 'Take Survey',
-    url: 'https://www.automa.site/survey',
+    url: 'https://www.turium.ai/',
   },
 };
 

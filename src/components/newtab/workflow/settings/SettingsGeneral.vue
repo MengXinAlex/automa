@@ -40,13 +40,13 @@
         minutes)
       </p>
     </div>
-    <a
+    <!-- <a
       href="https://docs.automa.site/workflow/settings.html#workflow-execution"
       class="mr-2"
       target="_blank"
     >
       <v-remixicon name="riInformationLine" />
-    </a>
+    </a> -->
     <ui-select
       :model-value="settings.execContext || 'popup'"
       @change="updateSetting('execContext', $event)"
@@ -130,14 +130,14 @@
         {{ t('workflow.settings.publicId.description') }}
       </p>
     </div>
-    <a
+    <!-- <a
       href="https://docs.automa.site/blocks/trigger.html#trigger-using-js-customevent"
       target="_blank"
       rel="noopener"
       class="mr-2 text-gray-600 dark:text-gray-200"
     >
       <v-remixicon name="riInformationLine" />
-    </a>
+    </a> -->
     <ui-input
       :model-value="settings.publicId"
       placeholder="myWorkflowPublicId"

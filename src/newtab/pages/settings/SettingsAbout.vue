@@ -3,14 +3,14 @@
     <div class="bg-box-transparent mb-2 inline-block rounded-full p-3">
       <img src="@/assets/svg/logo.svg" class="w-14" />
     </div>
-    <p class="text-2xl font-semibold">Automa</p>
+    <p class="text-2xl font-semibold">Turium</p>
     <p class="mb-2 mt-1">Version: {{ extensionVersion }}</p>
     <p class="text-gray-600 dark:text-gray-200">
-      Automa is a chrome extension for browser automation. From auto-fill forms,
+      Turium is a chrome extension for browser automation. From auto-fill forms,
       doing a repetitive task, taking a screenshot, to scraping data of the
       website, it's up to you what you want to do with this extension.
     </p>
-    <div class="mt-4 space-x-2">
+    <!-- <div class="mt-4 space-x-2">
       <a
         v-for="link in links"
         :key="link.name"
@@ -44,7 +44,7 @@
         />
       </a>
     </div>
-    <h3>Translators</h3>
+    <h3>Translators</h3> -->
   </div>
 </template>
 <script setup>

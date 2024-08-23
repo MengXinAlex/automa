@@ -51,12 +51,12 @@
       <div class="mt-4 flex items-center rounded-lg bg-accent p-4 shadow-2xl">
         <v-remixicon name="riInformationLine" class="mr-3 shrink-0" />
         <p>
-          Export your Automa workflows as a standalone extension using
+          Export your Turium workflows as a standalone extension using
           <a
             href="https://docs.automa.site/extension-builder/"
             target="_blank"
             class="underline"
-            >Automa Chrome Extension Builder</a
+            >Turium Chrome Extension Builder</a
           >
         </p>
       </div>
@@ -275,8 +275,8 @@ useHead(() => {
     title: 'Dashboard',
     titleTemplate:
       runningWorkflows > 0
-        ? `%s (${runningWorkflows} Workflows Running) - Automa`
-        : '%s - Automa',
+        ? `%s (${runningWorkflows} Workflows Running) - Turium`
+        : '%s - Turium',
   };
 });
 

@@ -349,7 +349,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (!isAutomaWorkflow) return;
 
   const accept = window.confirm(
-    'Do you want to add this workflow into Automa?'
+    'Do you want to add this workflow into Turium?'
   );
   if (!accept) return;
   const workflow = JSON.parse(document.documentElement.innerText);

@@ -4,8 +4,8 @@
     "communities": "Comunità"
   },
   "welcome": {
-    "title": "Benvenuto su Automa! 🎉",
-    "text": "Puoi cominciare leggendo la documentazione o esplorando i workflow nel marketplace di Automa.",
+    "title": "Benvenuto su Turium! 🎉",
+    "text": "Puoi cominciare leggendo la documentazione o esplorando i workflow nel marketplace di Turium.",
     "marketplace": "Marketplace"
   },
   "packages": {
@@ -81,7 +81,7 @@
     }
   },
   "updateMessage": {
-    "text1": "Automa è stato aggiorno alla versione v{version},",
+    "text1": "Turium è stato aggiorno alla versione v{version},",
     "text2": "scopri le novità."
   },
   "workflows": {
@@ -325,7 +325,7 @@
       },
       "autocomplete": {
         "title": "Autocompletamento",
-        "description": "Abilita l'autocompletamento nel blocco di input (disabilita se rende Automa instabile)"
+        "description": "Abilita l'autocompletamento nel blocco di input (disabilita se rende Turium instabile)"
       },
       "clearCache": {
         "title": "Svuota cache",
@@ -418,13 +418,13 @@
       "active-tab-removed": "La scheda attiva del workflow è stata chiusa",
       "empty-spreadsheet-range": "L'intervallo del foglio di calcolo è vuoto",
       "stop-timeout": "Il workflow è stato interrotto a causa dello scadere del timeout",
-      "no-file-access": "Automa non ha accesso al file",
+      "no-file-access": "Turium non ha accesso al file",
       "no-workflow": "Impossibile trovare un workflow con l'ID \"{workflowId}\"",
       "no-match-tab": "Impossibile trovare una scheda che corrisponda al pattern \"{pattern}\"",
-      "no-clipboard-acces": "Automa non dispone del permesso per accedere agli appunti",
+      "no-clipboard-acces": "Turium non dispone del permesso per accedere agli appunti",
       "browser-not-supported": "Questa funzione non è supportata in un browser {browser}",
       "element-not-found": "Impossibile trovare un elemento con il selettore \"{selector}\"",
-      "no-permission": "Automa non dispone del permesso \"{permission}\" per eseguire questa azione",
+      "no-permission": "Turium non dispone del permesso \"{permission}\" per eseguire questa azione",
       "not-iframe": "L'elemento con il selettore \"{selettore}\" non è un elemento iframe",
       "iframe-not-found": "Impossibile trovare un elemento iframe con il selettore \"{selector}\"",
       "workflow-infinite-loop": "Impossibile eseguire il workflow per evitare di ripetere un ciclo infinito",

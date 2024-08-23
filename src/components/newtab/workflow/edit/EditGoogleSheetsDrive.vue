@@ -6,7 +6,7 @@
         href="https://docs.automa.site/integrations/google-drive.html"
         target="_blank"
         class="underline"
-        >connected Automa to Google Drive</a
+        >connected Turium to Google Drive</a
       >.
     </p>
   </div>

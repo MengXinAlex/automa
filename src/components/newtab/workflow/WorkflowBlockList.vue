@@ -22,14 +22,14 @@
         <div
           class="invisible absolute right-2 top-2 flex items-center text-gray-600 group-hover:visible dark:text-gray-300"
         >
-          <a
+          <!-- <a
             :href="`https://docs.automa.site/blocks/${block.id}.html`"
             :title="t('common.docs')"
             target="_blank"
             rel="noopener"
           >
             <v-remixicon name="riInformationLine" size="18" />
-          </a>
+          </a> -->
           <span
             :title="`${pinned.includes(block.id) ? 'Unpin' : 'Pin'} block`"
             class="ml-1 cursor-pointer"

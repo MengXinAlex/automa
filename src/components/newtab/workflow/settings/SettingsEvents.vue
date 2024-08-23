@@ -187,7 +187,7 @@ const EVENT_ACTIONS = {
     method: 'POST',
   },
   'js-code': {
-    code: "const workflow = automaRefData('workflow');\nconsole.log(\n\tworkflow.status,\n\tworkflow.logs,\n\tworkflow.errorMessage\n)",
+    code: "const workflow = turiumRefData('workflow');\nconsole.log(\n\tworkflow.status,\n\tworkflow.logs,\n\tworkflow.errorMessage\n)",
     type: 'js-code',
   },
 };

@@ -6,7 +6,7 @@
   >
     {{ workflow.tag }}
   </span>
-  <ui-card
+  <!-- <ui-card
     v-if="!isTeam"
     padding="p-1"
     class="pointer-events-auto ml-4 flex items-center"
@@ -88,7 +88,7 @@
         </ui-list-item>
       </ui-list>
     </ui-popover>
-  </ui-card>
+  </ui-card> -->
   <ui-card
     v-if="canEdit"
     padding="p-1 ml-4 hidden md:block pointer-events-auto"

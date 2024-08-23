@@ -4,8 +4,8 @@
     "communities": "Cộng đồng"
   },
   "welcome": {
-    "title": "Chào mừng bạn đến với Automa! 🎉",
-    "text": "Bắt đầu bằng cách đọc tài liệu hoặc duyệt quy trình công việc trong Automa Marketplace.",
+    "title": "Chào mừng bạn đến với Turium! 🎉",
+    "text": "Bắt đầu bằng cách đọc tài liệu hoặc duyệt quy trình công việc trong Turium Marketplace.",
     "marketplace": "Cửa hàng"
   },
   "packages": {
@@ -80,7 +80,7 @@
     }
   },
   "updateMessage": {
-    "text1": "Automa đã được cập nhật lên v{version},",
+    "text1": "Turium đã được cập nhật lên v{version},",
     "text2": "xem có gì mới."
   },
   "workflows": {
@@ -307,7 +307,7 @@
       "notification": {
         "title": "Thông báo quy trình làm việc",
         "description": "Hiển thị trạng thái dòng công việc (thành công hay không thành công) sau khi nó được thực thi",
-        "noPermission": "Automa yêu cầu quyền \"thông báo \" để làm cho điều này hoạt động"
+        "noPermission": "Turium yêu cầu quyền \"thông báo \" để làm cho điều này hoạt động"
       },
       "publicId": {
         "title": "ID công khai quy trình làm việc",
@@ -320,7 +320,7 @@
       },
       "autocomplete": {
         "title": "Tự động hoàn thành",
-        "description": "Bật tự động hoàn thành trong khối đầu vào (tắt nếu nó làm cho Automa không ổn định)"
+        "description": "Bật tự động hoàn thành trong khối đầu vào (tắt nếu nó làm cho Turium không ổn định)"
       },
       "clearCache": {
         "title": "Xóa bộ nhớ cache",
@@ -409,7 +409,7 @@
       "empty-spreadsheet-range": "Phạm vi bảng tính trống",
       "stop-timeout": "Quy trình đã bị dừng vì hết thời lượng thực thi",
       "invalid-proxy-host": "Máy chủ proxy không hợp lệ",
-      "no-file-access": "Automa không có quyền truy cập vào tệp ",
+      "no-file-access": "Turium không có quyền truy cập vào tệp ",
       "no-workflow": "Không tìm thấy quy trình với ID \"{workflowId}\"",
       "no-match-tab": "Không thể tìm thấy tab có các mẫu \"{pattern} \"",
       "no-clipboard-acces": "Không có quyền truy cập khay nhớ tạm",

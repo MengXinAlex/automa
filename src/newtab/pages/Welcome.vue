@@ -5,8 +5,8 @@
     </h1>
     <p>
       Get started by reading the documentation or browsing workflows in the
-      Automa Marketplace. <br />
-      To learn how to use Automa, watch the tutorials on our YouTube Channel.
+      Turium Marketplace. <br />
+      To learn how to use Turium, watch the tutorials on our YouTube Channel.
     </p>
     <div class="mt-8 flex items-center space-x-2">
       <a
@@ -52,39 +52,10 @@ const communities = [
   {
     name: 'GitHub',
     icon: 'riGithubFill',
-    url: 'https://github.com/AutomaApp/automa',
+    url: 'https://github.com/xaana',
   },
-  {
-    name: 'Twitter',
-    icon: 'riTwitterLine',
-    url: 'https://twitter.com/AutomaApp',
-  },
-  {
-    name: 'Discord',
-    icon: 'riDiscordLine',
-    url: 'https://discord.gg/C6khwwTE84',
-  },
+
 ];
 const links = [
-  {
-    name: t('common.docs'),
-    icon: 'riBook3Line',
-    url: 'https://docs.automa.site',
-  },
-  {
-    name: t('welcome.marketplace'),
-    icon: 'riCompass3Line',
-    url: 'https://www.automa.site/workflows',
-  },
-  {
-    name: 'YouTube',
-    icon: 'riYoutubeLine',
-    url: 'https://youtube.com/channel/UCL3qU64hW0fsIj2vOayOQUQ',
-  },
-  {
-    name: 'Blog',
-    icon: 'riArticleLine',
-    url: 'https://blog.automa.site',
-  },
 ];
 </script>

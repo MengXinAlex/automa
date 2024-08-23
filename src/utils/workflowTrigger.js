@@ -40,7 +40,7 @@ export function registerContextMenu(triggerId, data) {
                 documentUrlPatterns,
                 contexts: ['all'],
                 id: 'automaContextMenu',
-                title: 'Run Automa workflow',
+                title: 'Run Turium workflow',
               },
               () => {
                 registerContextMenu(workflowId, data)

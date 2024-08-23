@@ -4,14 +4,14 @@
       <h1 class="text-2xl font-semibold">
         {{ t('common.storage') }}
       </h1>
-      <a
+      <!-- <a
         href="https://docs.automa.site/reference/storage.html"
         title="Docs"
         class="ml-2 text-gray-600 dark:text-gray-200"
         target="_blank"
       >
         <v-remixicon name="riInformationLine" size="20" />
-      </a>
+      </a> -->
     </div>
     <ui-tabs v-model="state.activeTab" class="mt-5" @change="onTabChange">
       <ui-tab value="tables">

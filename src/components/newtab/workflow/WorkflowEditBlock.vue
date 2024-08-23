@@ -10,7 +10,7 @@
         {{ getBlockName() }}
       </p>
       <div class="grow"></div>
-      <a
+      <!-- <a
         :title="t('common.docs')"
         :href="`https://docs.automa.site/blocks/${data.id}.html`"
         rel="noopener"
@@ -18,7 +18,7 @@
         class="text-gray-600 dark:text-gray-200"
       >
         <v-remixicon name="riInformationLine" />
-      </a>
+      </a> -->
     </div>
     <component
       :is="getEditComponent()"

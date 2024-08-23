@@ -1589,22 +1589,7 @@ export const communities = [
   {
     name: 'GitHub',
     icon: 'riGithubFill',
-    url: 'https://github.com/kholid060/automa',
-  },
-  {
-    name: 'Twitter',
-    icon: 'riTwitterLine',
-    url: 'https://twitter.com/AutomaApp',
-  },
-  {
-    name: 'Discord',
-    icon: 'riDiscordLine',
-    url: 'https://discord.gg/C6khwwTE84',
-  },
-  {
-    name: 'YouTube',
-    icon: 'riYoutubeLine',
-    url: 'https://www.youtube.com/channel/UCL3qU64hW0fsIj2vOayOQUQ',
+    url: 'https://github.com/xaana',
   },
 ];
 

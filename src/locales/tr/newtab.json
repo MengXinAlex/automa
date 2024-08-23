@@ -4,8 +4,8 @@
     "communities": "Topluluklar"
   },
   "welcome": {
-    "title": "Automa'ya Hoş Geldiniz! 🎉",
-    "text": "Belgelendirmeyi okuyarak veya Automa Marketplace'deki iş akışlarını göz atarak başlayın.",
+    "title": "Turium'ya Hoş Geldiniz! 🎉",
+    "text": "Belgelendirmeyi okuyarak veya Turium Marketplace'deki iş akışlarını göz atarak başlayın.",
     "marketplace": "Marketplace"
   },
   "packages": {
@@ -81,7 +81,7 @@
     }
   },
   "updateMessage": {
-    "text1": "Automa v{version} sürümüne güncellendi,",
+    "text1": "Turium v{version} sürümüne güncellendi,",
     "text2": "yeniliklere göz atın."
   },
   "workflows": {
@@ -362,7 +362,7 @@
       },
       "autocomplete": {
         "title": "Otomatik tamamlama",
-        "description": "Giriş bloğunda otomatik tamamlamayı etkinleştirin (Automa'nın kararsız hale gelirse devre dışı bırakın)"
+        "description": "Giriş bloğunda otomatik tamamlamayı etkinleştirin (Turium'nın kararsız hale gelirse devre dışı bırakın)"
       },
       "clearCache": {
         "title": "Önbelleği temizle",
@@ -455,7 +455,7 @@
       "active-tab-removed": "İş akışı etkin sekmesi kaldırıldı",
       "empty-spreadsheet-range": "Tablo aralığı boş",
       "stop-timeout": "İş akışı zaman aşımı nedeniyle durduruldu",
-      "no-file-access": "Automa'nın dosyaya erişimi yok",
+      "no-file-access": "Turium'nın dosyaya erişimi yok",
       "no-workflow": "ID \"{workflowId}\" ile bir iş akışı bulunamıyor",
       "no-match-tab": "\"{pattern}\" deseniyle eşleşen bir sekme bulunamıyor",
       "no-clipboard-acces": "Pano erişim izni yok",

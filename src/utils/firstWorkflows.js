@@ -615,7 +615,7 @@ export default [
             multiple: false,
             selected: true,
             type: 'text-field',
-            value: 'Automa Extension',
+            value: 'Turium Extension',
             delay: '120',
             events: [],
           },

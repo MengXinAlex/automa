@@ -15,7 +15,7 @@
         "selector": "元素选择器",
         "selectorOptions": "选择器选项",
         "timeout": "超时 (毫秒)",
-        "noPermission": "Automa 没有足够的权限执行此操作",
+        "noPermission": "Turium 没有足够的权限执行此操作",
         "grantPermission": "授予权限",
         "action": "操作",
         "element": {
@@ -281,7 +281,7 @@
         "addFile": "添加文件",
         "onlyURL": "仅支持从 Firefox 浏览器中的 URL 上传文件",
         "requirement": "使用本模块前，请参看要求",
-        "noFileAccess": "Automa 没有文件访问权限"
+        "noFileAccess": "Turium 没有文件访问权限"
       },
       "browser-event": {
         "name": "浏览器事件",
@@ -348,7 +348,7 @@
           "targetWebsite": "目标元素所在网站的匹配模式（点击查看更多匹配模式示例)",
           "baseEl": {
             "title": "基础元素 (可选项)",
-            "description": "当此元素发生变化时，Automa 将重新开始监测目标元素"
+            "description": "当此元素发生变化时，Turium 将重新开始监测目标元素"
           },
           "subtree": {
             "title": "包含子树",

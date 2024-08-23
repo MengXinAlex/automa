@@ -4,8 +4,8 @@
     "communities": "Communities"
   },
   "welcome": {
-    "title": "Welcome to Automa! 🎉",
-    "text": "Get started by reading the documentation or browsing workflows in the Automa Marketplace.",
+    "title": "Welcome to Turium! 🎉",
+    "text": "Get started by reading the documentation or browsing workflows in the Turium Marketplace.",
     "marketplace": "Marketplace"
   },
   "packages": {
@@ -82,7 +82,7 @@
     }
   },
   "updateMessage": {
-    "text1": "Automa has been updated to v{version},",
+    "text1": "Turium has been updated to v{version},",
     "text2": "see what's new."
   },
   "workflows": {
@@ -263,7 +263,7 @@
       "add": "Add condition",
       "and": "AND",
       "or": "OR",
-      "topAwait": "Support top-level await and \"automaRefData\" function"
+      "topAwait": "Support top-level await and \"TuriumRefData\" function"
     },
     "host": {
       "title": "Host workflow",
@@ -363,7 +363,7 @@
       },
       "autocomplete": {
         "title": "Autocomplete",
-        "description": "Enable autocomplete in the input block (disable if it makes Automa unstable)"
+        "description": "Enable autocomplete in the input block (disable if it makes Turium unstable)"
       },
       "clearCache": {
         "title": "Clear cache",
@@ -456,7 +456,7 @@
       "active-tab-removed": "Workflow active tab was removed",
       "empty-spreadsheet-range": "Spreadsheet range is empty",
       "stop-timeout": "Workflow was stopped due to timeout",
-      "no-file-access": "Automa doesn't have access to the file",
+      "no-file-access": "Turium doesn't have access to the file",
       "no-workflow": "Can't find a workflow with the ID \"{workflowId}\"",
       "no-match-tab": "Can't find a tab matching the pattern \"{pattern}\"",
       "no-clipboard-acces": "Don't have permission to access the clipboard",

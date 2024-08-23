@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-xl">
-    <ui-card class="mb-12">
+    <!-- <ui-card class="mb-12">
       <h2 class="mb-2 font-semibold">
         {{ t('settings.backupWorkflows.cloud.title') }}
       </h2>
@@ -66,7 +66,7 @@
         </a>
         to start back up your workflows to the cloud
       </p>
-    </ui-card>
+    </ui-card> -->
     <h2 class="mb-2 font-semibold">
       {{ t('settings.backupWorkflows.title') }}
     </h2>
@@ -120,7 +120,7 @@
               </p>
               <template v-if="!downloadPermission.has.downloads">
                 <p class="text-gray-600 dark:text-gray-300 mt-1">
-                  Automa requires the "Downloads" permission for the schedule
+                  Turium requires the "Downloads" permission for the schedule
                   backup to work
                 </p>
                 <ui-button
@@ -257,7 +257,7 @@ const localBackupSchedule = reactive({
   lastBackup: null,
   includedItems: [],
   customSchedule: '',
-  folderName: 'automa-backup',
+  folderName: 'turium-backup',
 });
 
 async function registerScheduleBackup() {
@@ -352,7 +352,7 @@ async function backupWorkflows() {
     }
 
     const downloadFile = (data) => {
-      const fileName = `automa-${dayjs().format('DD-MM-YYYY')}.json`;
+      const fileName = `turium-${dayjs().format('DD-MM-YYYY')}.json`;
       const blob = new Blob([JSON.stringify(data)], {
         type: 'application/json',
       });

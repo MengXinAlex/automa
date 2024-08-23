@@ -15,7 +15,7 @@
         "selector": "Element selector",
         "selectorOptions": "Selector options",
         "timeout": "Timeout (milliseconds)",
-        "noPermission": "Automa doesn't have enough permissions to perform this action",
+        "noPermission": "Turium doesn't have enough permissions to perform this action",
         "grantPermission": "Grant permission",
         "action": "Action",
         "element": {
@@ -282,7 +282,7 @@
         "addFile": "Add file",
         "onlyURL": "Only uploading files from a URL is supported in the Firefox browser",
         "requirement": "Read the requirements before using this block",
-        "noFileAccess": "Automa doesn't have access to files"
+        "noFileAccess": "Turium doesn't have access to files"
       },
       "browser-event": {
         "name": "Browser event",
@@ -349,7 +349,7 @@
           "targetWebsite": "The Match Pattern of the website where the target element is (click to see more Match Pattern examples)",
           "baseEl": {
             "title": "Base element (optional)",
-            "description": "Automa will restart observing the target element when this element changes"
+            "description": "Turium will restart observing the target element when this element changes"
           },
           "subtree": {
             "title": "Include subtree",

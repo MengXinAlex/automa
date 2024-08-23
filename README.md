@@ -1,10 +1,10 @@
 <img src="src/assets/images/icon-128.png" width="64"/>
 
-# Automa
+# Turium
 <p>
-  <img alt="Automa latest version" src="https://img.shields.io/github/package-json/v/kholid060/automa" />
-  <a href="https://twitter.com/AutomaApp">
-    <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/AutomaApp?style=social" />
+  <img alt="Turium latest version" src="https://img.shields.io/github/package-json/v/kholid060/automa" />
+  <a href="https://twitter.com/TuriumApp">
+    <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/TuriumApp?style=social" />
   </a>
   <a href="https://discord.gg/C6khwwTE84">
     <img alt="Chat with us on Discord" src="https://img.shields.io/discord/942211415517835354?label=join%20discord&logo=Discord&logoColor=white" />
@@ -33,10 +33,10 @@ Auto-fill forms, do a repetitive task, take a screenshot, or scrape website data
 </table>
 
 ## Marketplace
-Browse the Automa marketplace where you can share and download workflows with others. [Go to the marketplace &#187;](https://www.automa.site/marketplace)
+Browse the Turium marketplace where you can share and download workflows with others. [Go to the marketplace &#187;](https://www.automa.site/marketplace)
 
-## Automa Chrome Extension Builder
-Automa Chrome Extension Builder (Automa CEB for short) allows you to generate a standalone chrome extension based on Automa workflows. [Go to the documentation &#187;](https://docs.automa.site/extension-builder)
+## Turium Chrome Extension Builder
+Turium Chrome Extension Builder (Turium CEB for short) allows you to generate a standalone chrome extension based on Turium workflows. [Go to the documentation &#187;](https://docs.automa.site/extension-builder)
 
 
 ## Project setup
@@ -94,6 +94,6 @@ Thanks to everyone who has submitted issues, made suggestions, and generally hel
 </a>
 
 ## License
-Source code in this repository is variously licensed under the GNU Affero General Public License (AGPL), or the [Automa Commercial License](https://www.automa.site/license/commercial/).
+Source code in this repository is variously licensed under the GNU Affero General Public License (AGPL), or the [Turium Commercial License](https://www.automa.site/license/commercial/).
 
 See [LICENSE.txt](./LICENSE.txt) for details.

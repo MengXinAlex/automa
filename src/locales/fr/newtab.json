@@ -3,12 +3,12 @@
     "viewAll": "Voir tout"
   },
   "welcome": {
-    "title": "Bienvenue sur Automa! 🎉",
-    "text": "Commencez par lire la documentation ou parcourez workflows dans Automa Marketplace.",
+    "title": "Bienvenue sur Turium! 🎉",
+    "text": "Commencez par lire la documentation ou parcourez workflows dans Turium Marketplace.",
     "marketplace": "Marketplace"
   },
   "updateMessage": {
-    "text1": "Automa a été mis à jour vers v{version},",
+    "text1": "Turium a été mis à jour vers v{version},",
     "text2": "Regardez ce qu'il y a de nouveau."
   },
   "auth": {
@@ -230,7 +230,7 @@
       "active-tab-removed": "L'onglet actif du workflow est supprimé",
       "empty-spreadsheet-range": "La plage de la feuille de calcul est vide",
       "stop-timeout": "Le workflow est arrêté en raison du délai d'attente",
-      "no-file-access": "Automa n'a pas accès au fichier",
+      "no-file-access": "Turium n'a pas accès au fichier",
       "no-workflow": "Impossible de trouver le workflow avec l'ID \"{workflowId}\"",
       "no-match-tab": "Impossible de trouver un onglet avec les motifs \"{pattern}\"",
       "no-clipboard-acces": "Vous n'êtes pas autorisé à accéder au presse-papiers",

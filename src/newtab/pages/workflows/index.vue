@@ -46,7 +46,7 @@
           </ui-popover>
         </div>
         <ui-list class="mt-6 space-y-2">
-          <ui-list-item
+          <!-- <ui-list-item
             tag="a"
             href="https://www.automa.site/workflows"
             target="_blank"
@@ -55,7 +55,7 @@
             <span class="ml-4 capitalize">
               {{ t('workflow.browse') }}
             </span>
-          </ui-list-item>
+          </ui-list-item> -->
           <ui-expand
             v-if="state.teams.length > 0"
             append-icon
@@ -293,7 +293,7 @@
               Click the "Record workflow" button, and do your simple repetitive
               task
             </li>
-            <li>
+            <!-- <li>
               Need more help? Join
               <a
                 href="https://discord.gg/C6khwwTE84"
@@ -304,16 +304,16 @@
               <a href="mailto:support@automa.site" target="_blank"
                 >support@automa.site</a
               >
-            </li>
+            </li> -->
           </ol>
-          <p class="mt-4">
+          <!-- <p class="mt-4">
             Learn more about recording in
             <a
               href="https://docs.automa.site/guide/quick-start.html#recording-actions"
               target="_blank"
               >the documentation</a
             >
-          </p>
+          </p> -->
         </ui-card>
       </div>
     </div>
