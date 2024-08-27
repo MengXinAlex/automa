@@ -262,7 +262,7 @@
       "add": "Koşul Ekle",
       "and": "VE",
       "or": "VEYA",
-      "topAwait": "Üst düzey bekleme ve \"automaRefData\" fonksiyonunu destekle"
+      "topAwait": "Üst düzey bekleme ve \"turiumRefData\" fonksiyonunu destekle"
     },
     "host": {
       "title": "İş Akışını Barındır",

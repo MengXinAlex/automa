@@ -22,10 +22,10 @@ function getScrollParent(node) {
 }
 function excludeSelector({ type, selector, loopAttr }) {
   if (type === 'cssSelector') {
-    return `${selector}:not([automa-loop*="${loopAttr}"])`;
+    return `${selector}:not([turium-loop*="${loopAttr}"])`;
   }
 
-  return `${selector}[not(contains(@automa-loop, 'gku9rbk-qje-F'))]`;
+  return `${selector}[not(contains(@turium-loop, 'gku9rbk-qje-F'))]`;
 }
 
 export default async function ({ data, id }) {
@@ -62,7 +62,7 @@ export default async function ({ data, id }) {
 
     if (data.type.includes('scroll')) {
       const loopItems = document.querySelectorAll(
-        `[automa-loop*="${data.loopAttrId}"]`
+        `[turium-loop*="${data.loopAttrId}"]`
       );
       if (loopItems.length === 0) return { continue: true };
 

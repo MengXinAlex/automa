@@ -71,7 +71,7 @@
               <a
                 v-for="func in availableFuncs"
                 :key="func.id"
-                :href="`https://docs.automa.site/blocks/javascript-code.html#${func.id}`"
+                :href="`https://docs.turium.site/blocks/javascript-code.html#${func.id}`"
                 target="_blank"
                 rel="noopener"
                 class="bg-box-transparent inline-block rounded-md p-1 text-sm"
@@ -128,8 +128,8 @@ import { reactive, watch, defineAsyncComponent } from 'vue';
 import { autocompletion } from '@codemirror/autocomplete';
 import cloneDeep from 'lodash.clonedeep';
 import {
-  automaFuncsSnippets,
-  automaFuncsCompletion,
+  turiumFuncsSnippets,
+  turiumFuncsCompletion,
   completeFromGlobalScope,
 } from '@/utils/codeEditorAutocomplete';
 import EditInteractionBase from './EditInteractionBase.vue';
@@ -151,8 +151,8 @@ const props = defineProps({
 const emit = defineEmits(['update:data']);
 
 const availableFuncs = [
-  { name: 'automaRefData(keyword, path?)', id: 'automarefdata-keyword-path' },
-  { name: 'automaExecWorkflow(options)', id: 'automaexecworkflow-options' },
+  { name: 'turiumRefData(keyword, path?)', id: 'turiumrefdata-keyword-path' },
+  { name: 'turiumExecWorkflow(options)', id: 'turiumexecworkflow-options' },
 ];
 const insertOptions = [
   'before',
@@ -168,13 +168,13 @@ const tabs = [
 ];
 
 const autocompleteList = [
-  automaFuncsSnippets.automaExecWorkflow,
-  automaFuncsSnippets.automaRefData,
+  turiumFuncsSnippets.turiumExecWorkflow,
+  turiumFuncsSnippets.turiumRefData,
 ];
 const codemirrorExts = [
   autocompletion({
     override: [
-      automaFuncsCompletion(autocompleteList),
+      turiumFuncsCompletion(autocompleteList),
       completeFromGlobalScope,
     ],
   }),

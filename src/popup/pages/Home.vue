@@ -164,7 +164,7 @@
         If the workflow runs for less than 5 minutes, set it to run in the
         background in the
         <a
-          href="https://docs.automa.site/workflow/settings.html#workflow-execution"
+          href="https://docs.turium.site/workflow/settings.html#workflow-execution"
           class="font-semibold underline"
           target="_blank"
         >
@@ -194,7 +194,7 @@ import { useTeamWorkflowStore } from '@/stores/teamWorkflow';
 import { useHostedWorkflowStore } from '@/stores/hostedWorkflow';
 import { parseJSON, arraySorter } from '@/utils/helper';
 import { initElementSelector as initElementSelectorFunc } from '@/newtab/utils/elementSelector';
-import automa from '@business';
+import turium from '@business';
 import HomeWorkflowCard from '@/components/popup/home/HomeWorkflowCard.vue';
 import HomeTeamWorkflows from '@/components/popup/home/HomeTeamWorkflows.vue';
 import BackgroundUtils from '@/background/BackgroundUtils';
@@ -290,7 +290,7 @@ const showTab = computed(
 
 function openDocs() {
   window.open(
-    'https://docs.automa.site/guide/quick-start.html#recording-actions',
+    'https://docs.turium.site/guide/quick-start.html#recording-actions',
     '_blank'
   );
 }
@@ -416,7 +416,7 @@ onMounted(async () => {
 
   let activeTab = localStorage.getItem('popup-tab') || 'local';
 
-  await automa('app');
+  await turium('app');
 
   if (activeTab === 'team' && !userStore.user?.teams) activeTab = 'local';
   else if (activeTab === 'host' && hostedWorkflowStore.toArray.length < 1)

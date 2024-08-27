@@ -4,7 +4,7 @@ export default function (data) {
   let timeout;
   const instanceId = nanoid();
   const scriptId = `script${data.id}`;
-  const propertyName = `automa${data.id}`;
+  const propertyName = `turium${data.id}`;
 
   const isScriptExists = document.querySelector(`#${scriptId}`);
   if (isScriptExists) {
@@ -32,33 +32,33 @@ export default function (data) {
     return scriptEl;
   });
 
-  if (!data.blockData.code.includes('automaNextBlock')) {
-    data.blockData.code += `\n automaNextBlock()`;
+  if (!data.blockData.code.includes('turiumNextBlock')) {
+    data.blockData.code += `\n turiumNextBlock()`;
   }
 
   const script = document.createElement('script');
   script.id = scriptId;
   script.textContent = `
     (() => {
-      function automaRefData(keyword, path = '') {
+      function turiumRefData(keyword, path = '') {
         if (!keyword) return null;
         if (!path) return ${propertyName}.refData[keyword];
 
         return window.$getNestedProperties(${propertyName}.refData, keyword + '.' + path);
       }
-      function automaSetVariable(name, value) {
+      function turiumSetVariable(name, value) {
         const variables = ${propertyName}.refData.variables;
         if (!variables) ${propertyName}.refData.variables = {}
 
         ${propertyName}.refData.variables[name] = value;
       }
-      function automaNextBlock(data = {}, insert = true) {
+      function turiumNextBlock(data = {}, insert = true) {
         ${propertyName}.nextBlock({ data, insert });
       }
-      function automaResetTimeout() {
+      function turiumResetTimeout() {
         ${propertyName}.resetTimeout();
       }
-      function automaFetch(type, resource) {
+      function turiumFetch(type, resource) {
         return ${propertyName}.fetch(type, resource);
       }
 
@@ -66,7 +66,7 @@ export default function (data) {
         ${data.blockData.code}
       } catch (error) {
         console.error(error);
-        automaNextBlock({ $error: true, message: error.message });
+        turiumNextBlock({ $error: true, message: error.message });
       }
     })();
   `;
@@ -113,13 +113,13 @@ export default function (data) {
 
         window.top.postMessage(
           {
-            type: 'automa-fetch',
+            type: 'turium-fetch',
             data: { id: instanceId, type, resource },
           },
           '*'
         );
 
-        const eventName = `automa-fetch-response-${instanceId}`;
+        const eventName = `turium-fetch-response-${instanceId}`;
 
         const eventListener = ({ detail }) => {
           window.removeEventListener(eventName, eventListener);

@@ -13,7 +13,7 @@ import selectorFrameContext from './selectorFrameContext';
 
       const rootElement = document.createElement('div');
       rootElement.setAttribute('id', 'app-container');
-      rootElement.classList.add('automa-element-selector');
+      rootElement.classList.add('turium-element-selector');
       rootElement.attachShadow({ mode: 'open' });
 
       initElementSelector(rootElement);
@@ -22,7 +22,7 @@ import selectorFrameContext from './selectorFrameContext';
       document.documentElement.appendChild(rootElement);
     } else {
       const style = document.createElement('style');
-      style.textContent = '[automa-el-list] {outline: 2px dashed #6366f1;}';
+      style.textContent = '[turium-el-list] {outline: 2px dashed #6366f1;}';
 
       document.body.appendChild(style);
 

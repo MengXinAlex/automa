@@ -6,7 +6,7 @@
     <p class="text-2xl font-semibold">Turium</p>
     <p class="mb-2 mt-1">Version: {{ extensionVersion }}</p>
     <p class="text-gray-600 dark:text-gray-200">
-      Turium is a chrome extension for browser automation. From auto-fill forms,
+      Turium is a chrome extension for browser turiumtion. From auto-fill forms,
       doing a repetitive task, taking a screenshot, to scraping data of the
       website, it's up to you what you want to do with this extension.
     </p>
@@ -61,16 +61,16 @@ const store = useStore();
 const extensionVersion = browser.runtime.getManifest().version;
 const links = [
   ...communities,
-  { name: 'Website', icon: 'riGlobalLine', url: 'https://www.automa.site' },
+  { name: 'Website', icon: 'riGlobalLine', url: 'https://www.turium.site' },
   {
     name: 'Documentation',
     icon: 'riBook3Line',
-    url: 'https://docs.automa.site',
+    url: 'https://docs.turium.site',
   },
   {
     name: 'Blog',
     icon: 'riArticleLine',
-    url: 'https://blog.automa.site',
+    url: 'https://blog.turium.site',
   },
   {
     name: 'Donate',
@@ -84,7 +84,7 @@ onMounted(async () => {
 
   try {
     const response = await fetch(
-      'https://api.github.com/repos/Kholid060/automa/contributors'
+      'https://api.github.com/repos/Kholid060/turium/contributors'
     );
     const contributors = (await response.json()).reduce(
       (acc, { type, avatar_url, login, html_url }) => {

@@ -136,7 +136,7 @@ class BackgroundWorkflowTriggers {
 
   static async contextMenu({ parentMenuItemId, menuItemId, frameId }, tab) {
     try {
-      if (parentMenuItemId !== 'automaContextMenu') return;
+      if (parentMenuItemId !== 'turiumContextMenu') return;
       const message = await browser.tabs.sendMessage(
         tab.id,
         {

@@ -48,7 +48,7 @@
         <ui-list class="mt-6 space-y-2">
           <!-- <ui-list-item
             tag="a"
-            href="https://www.automa.site/workflows"
+            href="https://www.turium.site/workflows"
             target="_blank"
           >
             <v-remixicon name="riCompass3Line" />
@@ -301,15 +301,15 @@
                 rel="noreferer"
                 >the community</a
               >, or email us at
-              <a href="mailto:support@automa.site" target="_blank"
-                >support@automa.site</a
+              <a href="mailto:support@turium.site" target="_blank"
+                >support@turium.site</a
               >
             </li> -->
           </ol>
           <!-- <p class="mt-4">
             Learn more about recording in
             <a
-              href="https://docs.automa.site/guide/quick-start.html#recording-actions"
+              href="https://docs.turium.site/guide/quick-start.html#recording-actions"
               target="_blank"
               >the documentation</a
             >

@@ -126,7 +126,7 @@
       }
     },
     "deleteLog": {
-      "title": "Elimina in automatico i log dei workflow",
+      "title": "Elimina in turiumtico i log dei workflow",
       "after": "Elimina dopo",
       "deleteAfter": {
         "never": "Mai",
@@ -225,7 +225,7 @@
       "add": "Aggiungi condizione",
       "and": "AND",
       "or": "OR",
-      "topAwait": "Supporta l'await di primo livello e il metodo \"automaRefData\""
+      "topAwait": "Supporta l'await di primo livello e il metodo \"turiumRefData\""
     },
     "host": {
       "title": "Ospita workflow",

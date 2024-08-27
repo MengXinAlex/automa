@@ -344,17 +344,17 @@ function onKeydown(event) {
     return;
   }
 
-  const shortcuts = window._automaShortcuts;
+  const shortcuts = window._turiumShortcuts;
   if (!shortcuts || shortcuts.length < 1) return;
 
-  const automaShortcut = shortcuts.every((shortcutKey) => {
+  const turiumShortcut = shortcuts.every((shortcutKey) => {
     if (shortcutKey === 'mod') return ctrlKey || metaKey;
     if (shortcutKey === 'shift') return shiftKey;
     if (shortcutKey === 'option') return altKey;
 
     return shortcutKey === key.toLowerCase();
   });
-  if (automaShortcut) {
+  if (turiumShortcut) {
     event.preventDefault();
     state.active = true;
     state.shortcutKeys = shortcuts;
@@ -476,14 +476,14 @@ window.initPaletteParams = (data) => {
 };
 
 onMounted(() => {
-  browser.storage.local.get('automaShortcut').then(({ automaShortcut }) => {
-    if (Array.isArray(automaShortcut) && automaShortcut.length < 1) return;
+  browser.storage.local.get('turiumShortcut').then(({ turiumShortcut }) => {
+    if (Array.isArray(turiumShortcut) && turiumShortcut.length < 1) return;
 
     let keys = ['mod', 'shift', 'e'];
-    if (automaShortcut) keys = automaShortcut.split('+');
+    if (turiumShortcut) keys = turiumShortcut.split('+');
 
     state.shortcutKeys = keys;
-    window._automaShortcuts = keys;
+    window._turiumShortcuts = keys;
   });
 
   window.addEventListener('keydown', onKeydown);

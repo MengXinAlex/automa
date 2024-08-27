@@ -25,7 +25,7 @@ function getElementsRect(data) {
 
   const payload = {
     elements: [],
-    type: 'automa:iframe-element-rect',
+    type: 'turium:iframe-element-rect',
   };
 
   if (data.click) {
@@ -69,9 +69,9 @@ function getElementsRect(data) {
   window.top.postMessage(payload, '*');
 }
 function resetElementSelector(data) {
-  const prevSelectedList = document.querySelectorAll('[automa-el-list]');
+  const prevSelectedList = document.querySelectorAll('[turium-el-list]');
   prevSelectedList.forEach((el) => {
-    el.removeAttribute('automa-el-list');
+    el.removeAttribute('turium-el-list');
   });
 
   if (data.clearCache) {
@@ -82,7 +82,7 @@ function resetElementSelector(data) {
 function findElement({ selector, selectorType, frameRect }) {
   const payload = {
     elements: [],
-    type: 'automa:selected-elements',
+    type: 'turium:selected-elements',
   };
 
   try {
@@ -104,13 +104,13 @@ function findElement({ selector, selectorType, frameRect }) {
 }
 function onMessage({ data }) {
   switch (data.type) {
-    case 'automa:get-element-rect':
+    case 'turium:get-element-rect':
       getElementsRect(data);
       break;
-    case 'automa:reset-element-selector':
+    case 'turium:reset-element-selector':
       resetElementSelector(data);
       break;
-    case 'automa:find-element':
+    case 'turium:find-element':
       findElement(data);
       break;
     default:

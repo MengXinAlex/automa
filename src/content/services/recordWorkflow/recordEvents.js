@@ -7,9 +7,9 @@ import addBlockToFlow from './addBlock';
 
 let isMainFrame = true;
 
-const isAutomaInstance = (target) =>
-  target.id === 'automa-recording' ||
-  document.body.hasAttribute('automa-selecting');
+const isTuriumInstance = (target) =>
+  target.id === 'turium-recording' ||
+  document.body.hasAttribute('turium-selecting');
 const isTextFieldEl = (el) => ['INPUT', 'TEXTAREA'].includes(el.tagName);
 
 async function addBlock(detail) {
@@ -29,7 +29,7 @@ async function addBlock(detail) {
         {
           frameSelector,
           recording: data.recording,
-          type: 'automa:record-events',
+          type: 'turium:record-events',
         },
         '*'
       );
@@ -40,7 +40,7 @@ async function addBlock(detail) {
 }
 
 function onChange({ target }) {
-  if (isAutomaInstance(target)) return;
+  if (isTuriumInstance(target)) return;
 
   const isInputEl = target.tagName === 'INPUT';
   const inputType = target.getAttribute('type');
@@ -112,7 +112,7 @@ function onChange({ target }) {
   });
 }
 async function onKeydown(event) {
-  if (isAutomaInstance(event.target) || event.repeat) return;
+  if (isTuriumInstance(event.target) || event.repeat) return;
 
   const isTextField = isTextFieldEl(event.target);
   const enterKey = event.key === 'Enter';
@@ -175,7 +175,7 @@ async function onKeydown(event) {
 }
 function onClick(event) {
   const { target } = event;
-  if (isAutomaInstance(target)) return;
+  if (isTuriumInstance(target)) return;
 
   const isTextField =
     (target.tagName === 'INPUT' && target.getAttribute('type') === 'text') ||
@@ -228,7 +228,7 @@ function onClick(event) {
 }
 
 const onMessage = debounce(({ data, source }) => {
-  if (data.type !== 'automa:record-events') return;
+  if (data.type !== 'turium:record-events') return;
 
   let { frameSelector } = data;
 
@@ -255,7 +255,7 @@ const onMessage = debounce(({ data, source }) => {
   browser.storage.local.set({ recording: data.recording });
 }, 100);
 const onScroll = debounce(({ target }) => {
-  if (isAutomaInstance(target)) return;
+  if (isTuriumInstance(target)) return;
 
   const isDocument = target === document;
   const element = isDocument ? document.documentElement : target;
@@ -286,7 +286,7 @@ const onScroll = debounce(({ target }) => {
 }, 500);
 
 const onInputTextField = debounce(({ target }) => {
-  const selector = target.dataset.automaElSelector;
+  const selector = target.dataset.turiumElSelector;
   if (!selector) return;
 
   addBlock((recording) => {
@@ -319,7 +319,7 @@ const onInputTextField = debounce(({ target }) => {
 function onFocusIn({ target }) {
   if (!isTextFieldEl(target)) return;
 
-  target.setAttribute('data-automa-el-selector', findSelector(target));
+  target.setAttribute('data-turium-el-selector', findSelector(target));
   target.addEventListener('input', onInputTextField);
 }
 function onFocusOut({ target }) {

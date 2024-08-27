@@ -38,8 +38,8 @@
     {
       "matches": [
         "http://localhost/*",
-        "*://*.automa.site/*",
-        "*://automa.vercel.app/*"
+        "*://*.turium.site/*",
+        "*://turium.vercel.app/*"
       ],
       "js": ["webService.bundle.js"],
       "run_at": "document_start",

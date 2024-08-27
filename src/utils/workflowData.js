@@ -246,7 +246,7 @@ export function exportWorkflow(workflow) {
   });
   const url = URL.createObjectURL(blob);
 
-  fileSaver(`${workflow.name}.automa.json`, url);
+  fileSaver(`${workflow.name}.turium.json`, url);
 }
 
 export default {

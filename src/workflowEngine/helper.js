@@ -148,7 +148,7 @@ export function convertData(data, type) {
   return result;
 }
 
-export function automaRefDataStr(varName) {
+export function turiumRefDataStr(varName) {
   return `
 function findData(obj, path) {
   const paths = path.split('.');
@@ -173,7 +173,7 @@ function findData(obj, path) {
 
   return result;
 }
-function automaRefData(keyword, path = '') {
+function turiumRefData(keyword, path = '') {
   const data = ${varName}[keyword];
 
   if (!data) return;
@@ -202,7 +202,7 @@ export function injectPreloadScript({ target, scripts, frameSelector }) {
         const scriptAttr = `block--${script.id}`;
 
         const isScriptExists = $documentCtx.querySelector(
-          `.automa-custom-js[${scriptAttr}]`
+          `.turium-custom-js[${scriptAttr}]`
         );
 
         if (isScriptExists) return;
@@ -210,7 +210,7 @@ export function injectPreloadScript({ target, scripts, frameSelector }) {
         const scriptEl = $documentCtx.createElement('script');
         scriptEl.textContent = script.data.code;
         scriptEl.setAttribute(scriptAttr, '');
-        scriptEl.classList.add('automa-custom-js');
+        scriptEl.classList.add('turium-custom-js');
 
         $documentCtx.documentElement.appendChild(scriptEl);
       });
@@ -242,13 +242,13 @@ export async function checkCSPAndInject(
           return script;
         };
         const eventListener = ({ srcElement }) => {
-          if (!srcElement || srcElement.id !== 'automa-csp') return;
+          if (!srcElement || srcElement.id !== 'turium-csp') return;
           srcElement.remove();
           resolve(true);
         };
         document.addEventListener('securitypolicyviolation', eventListener);
         const script = document.createElement('script');
-        script.id = 'automa-csp';
+        script.id = 'turium-csp';
         script.innerText = escapePolicy('console.log("...")');
 
         setTimeout(() => {

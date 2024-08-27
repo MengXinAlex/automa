@@ -2,7 +2,7 @@ import browser from 'webextension-polyfill';
 import { MessageListener } from '@/utils/message';
 import { sleep } from '@/utils/helper';
 import getFile, { readFileAsBase64 } from '@/utils/getFile';
-import automa from '@business';
+import turium from '@business';
 import { workflowState } from '@/workflowEngine';
 import { registerWorkflowTrigger } from '../utils/workflowTrigger';
 import BackgroundUtils from './BackgroundUtils';
@@ -200,7 +200,7 @@ message.on('workflow:breakpoint', (id) => {
   workflowState.update(id, { status: 'breakpoint' });
 });
 
-automa('background', message);
+turium('background', message);
 
 browser.runtime.onMessage.addListener(message.listener());
 
@@ -255,7 +255,7 @@ if (!isMV2) {
   document.body.appendChild(sandboxIframe);
 
   window.addEventListener('message', async ({ data }) => {
-    if (data?.type !== 'automa-fetch') return;
+    if (data?.type !== 'turium-fetch') return;
 
     const sendResponse = (result) => {
       sandboxIframe.contentWindow.postMessage(

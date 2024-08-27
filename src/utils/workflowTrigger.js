@@ -29,17 +29,17 @@ export function registerContextMenu(triggerId, data) {
         documentUrlPatterns,
         contexts: contextTypes,
         title: data.contextMenuName,
-        parentId: 'automaContextMenu',
+        parentId: 'turiumContextMenu',
       },
       () => {
         const error = browser.runtime.lastError;
         if (error) {
-          if (error.message.includes('automaContextMenu')) {
+          if (error.message.includes('turiumContextMenu')) {
             browserContext.create(
               {
                 documentUrlPatterns,
                 contexts: ['all'],
-                id: 'automaContextMenu',
+                id: 'turiumContextMenu',
                 title: 'Run Turium workflow',
               },
               () => {

@@ -556,7 +556,7 @@ export const tasks = {
       description: '',
       timeout: 20000,
       context: 'website',
-      code: 'console.log("Hello world!");\nautomaNextBlock()',
+      code: 'console.log("Hello world!");\nturiumNextBlock()',
       preloadScripts: [],
       everyNewTab: false,
       runBeforeLoad: false,
@@ -1551,7 +1551,7 @@ export const dataExportTypes = [
 
 export const workflowCategories = {
   scrape: 'Scraping',
-  automation: 'Automation',
+  turiumtion: 'Turiumtion',
   productivity: 'Productivity',
 };
 

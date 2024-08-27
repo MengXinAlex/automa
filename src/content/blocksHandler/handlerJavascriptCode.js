@@ -19,7 +19,7 @@ function javascriptCode({ data, isPreloadScripts, frameSelector }) {
     const scriptAttr = `block--${script.id}`;
 
     const isScriptExists = $documentCtx.querySelector(
-      `.automa-custom-js[${scriptAttr}]`
+      `.turium-custom-js[${scriptAttr}]`
     );
 
     if (isScriptExists) return;
@@ -27,7 +27,7 @@ function javascriptCode({ data, isPreloadScripts, frameSelector }) {
     const scriptEl = $documentCtx.createElement('script');
     scriptEl.textContent = script.data.code;
     scriptEl.setAttribute(scriptAttr, '');
-    scriptEl.classList.add('automa-custom-js');
+    scriptEl.classList.add('turium-custom-js');
 
     $documentCtx.documentElement.appendChild(scriptEl);
   });

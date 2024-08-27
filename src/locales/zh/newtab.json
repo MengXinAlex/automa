@@ -258,7 +258,7 @@
       "add": "附加条件",
       "and": "AND",
       "or": "OR",
-      "topAwait": "支持 top-level await 和\"automaRefData\"函数"
+      "topAwait": "支持 top-level await 和\"turiumRefData\"函数"
     },
     "host": {
       "title": "主机工作流程",

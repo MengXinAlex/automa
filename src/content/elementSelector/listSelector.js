@@ -89,23 +89,23 @@ export default function (
 ) {
   if (!target) return [];
 
-  const automaListEl = target.closest('[automa-el-list]');
+  const turiumListEl = target.closest('[turium-el-list]');
   let documentCtx = document;
 
   if (frameElement) {
     documentCtx = frameElement.contentDocument;
   }
 
-  if (automaListEl) {
-    if (target.hasAttribute('automa-el-list')) return [];
+  if (turiumListEl) {
+    if (target.hasAttribute('turium-el-list')) return [];
 
     const childSelector = findSelector(target, {
-      root: automaListEl,
+      root: turiumListEl,
       ...(selectorSettings || {}),
       idName: () => false,
     });
     const elements = documentCtx.querySelectorAll(
-      `[automa-el-list] ${childSelector}`
+      `[turium-el-list] ${childSelector}`
     );
 
     return Array.from(elements);

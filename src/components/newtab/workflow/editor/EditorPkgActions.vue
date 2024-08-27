@@ -33,7 +33,7 @@
         <transition-expand>
           <ui-input
             v-if="isPkgShared"
-            :model-value="`https://automa.site/packages/${data.id}`"
+            :model-value="`https://turium.site/packages/${data.id}`"
             readonly
             title="URL"
             type="url"

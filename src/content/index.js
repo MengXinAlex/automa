@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import cloneDeep from 'lodash.clonedeep';
 import findSelector from '@/lib/findSelector';
 import { sendMessage } from '@/utils/message';
-import automa from '@business';
+import turium from '@business';
 import { toCamelCase, isXPath } from '@/utils/helper';
 import handleSelector, {
   queryElements,
@@ -21,7 +21,7 @@ const isMainFrame = window.self === window.top;
 function messageToFrame(frameElement, blockData) {
   return new Promise((resolve, reject) => {
     function onMessage({ data }) {
-      if (data.type !== 'automa:block-execute-result') return;
+      if (data.type !== 'turium:block-execute-result') return;
 
       if (data.result?.$isError) {
         const error = new Error(data.result.message);
@@ -41,7 +41,7 @@ function messageToFrame(frameElement, blockData) {
       frameElement.contentWindow.postMessage(
         {
           messageId,
-          type: 'automa:execute-block',
+          type: 'turium:execute-block',
           blockData: { ...blockData, frameSelector: '' },
         },
         '*'
@@ -120,7 +120,7 @@ async function executeBlock(data) {
 }
 async function messageListener({ data, source }) {
   try {
-    if (data.type === 'automa:get-frame' && isMainFrame) {
+    if (data.type === 'turium:get-frame' && isMainFrame) {
       let frameRect = { x: 0, y: 0 };
 
       document.querySelectorAll('iframe').forEach((iframe) => {
@@ -132,7 +132,7 @@ async function messageListener({ data, source }) {
       source.postMessage(
         {
           frameRect,
-          type: 'automa:the-frame-rect',
+          type: 'turium:the-frame-rect',
         },
         '*'
       );
@@ -140,7 +140,7 @@ async function messageListener({ data, source }) {
       return;
     }
 
-    if (data.type === 'automa:execute-block') {
+    if (data.type === 'turium:execute-block') {
       const messageToken = await browser.storage.local.get(data.messageId);
       if (!data.messageId || !messageToken[data.messageId]) {
         window.top.postMessage(
@@ -150,7 +150,7 @@ async function messageListener({ data, source }) {
               message: 'Block id is empty',
               data: {},
             },
-            type: 'automa:block-execute-result',
+            type: 'turium:block-execute-result',
           },
           '*'
         );
@@ -164,7 +164,7 @@ async function messageListener({ data, source }) {
           window.top.postMessage(
             {
               result,
-              type: 'automa:block-execute-result',
+              type: 'turium:block-execute-result',
             },
             '*'
           );
@@ -178,7 +178,7 @@ async function messageListener({ data, source }) {
                 message: error.message,
                 data: error.data || {},
               },
-              type: 'automa:block-execute-result',
+              type: 'turium:block-execute-result',
             },
             '*'
           );
@@ -190,7 +190,7 @@ async function messageListener({ data, source }) {
 }
 
 (() => {
-  if (window.isAutomaInjected) return;
+  if (window.isTuriumInjected) return;
 
   initCommandPalette();
 
@@ -199,7 +199,7 @@ async function messageListener({ data, source }) {
   let $ctxMediaUrl = '';
   let $ctxTextSelection = '';
 
-  window.isAutomaInjected = true;
+  window.isTuriumInjected = true;
   window.addEventListener('message', messageListener);
   window.addEventListener(
     'contextmenu',
@@ -237,7 +237,7 @@ async function messageListener({ data, source }) {
     true
   );
 
-  window.isAutomaInjected = true;
+  window.isTuriumInjected = true;
   window.addEventListener('message', messageListener);
   window.addEventListener('contextmenu', ({ target }) => {
     contextElement = target;
@@ -249,7 +249,7 @@ async function messageListener({ data, source }) {
     // window.addEventListener('load', elementObserver);
   }
 
-  automa('content');
+  turium('content');
 
   browser.runtime.onMessage.addListener(async (data) => {
     const asyncExecuteBlock = async (block) => {
@@ -259,7 +259,7 @@ async function messageListener({ data, source }) {
       } catch (error) {
         console.error(error);
         const elNotFound = error.message === 'element-not-found';
-        const isLoopItem = data.data?.selector?.includes('automa-loop');
+        const isLoopItem = data.data?.selector?.includes('turium-loop');
 
         if (!elNotFound || !isLoopItem) return Promise.reject(error);
 
@@ -290,7 +290,7 @@ async function messageListener({ data, source }) {
         return Boolean(window.initPaletteParams);
       case 'content-script-exists':
         return true;
-      case 'automa-element-selector': {
+      case 'turium-element-selector': {
         return elementSelectorInstance();
       }
       case 'context-element': {
@@ -324,11 +324,11 @@ async function messageListener({ data, source }) {
   });
 })();
 
-window.addEventListener('__automa-fetch__', (event) => {
+window.addEventListener('__turium-fetch__', (event) => {
   const { id, resource, type } = event.detail;
   const sendResponse = (payload) => {
     window.dispatchEvent(
-      new CustomEvent(`__automa-fetch-response-${id}__`, {
+      new CustomEvent(`__turium-fetch-response-${id}__`, {
         detail: { id, ...payload },
       })
     );
@@ -345,8 +345,8 @@ window.addEventListener('__automa-fetch__', (event) => {
 
 window.addEventListener('DOMContentLoaded', async () => {
   const link = window.location.pathname;
-  const isAutomaWorkflow = /.+\.automa\.json$/.test(link);
-  if (!isAutomaWorkflow) return;
+  const isTuriumWorkflow = /.+\.turium\.json$/.test(link);
+  if (!isTuriumWorkflow) return;
 
   const accept = window.confirm(
     'Do you want to add this workflow into Turium?'

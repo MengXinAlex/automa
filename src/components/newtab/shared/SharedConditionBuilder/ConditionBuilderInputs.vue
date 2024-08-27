@@ -105,8 +105,8 @@ import { useI18n } from 'vue-i18n';
 import { autocompletion } from '@codemirror/autocomplete';
 import cloneDeep from 'lodash.clonedeep';
 import {
-  automaFuncsSnippets,
-  automaFuncsCompletion,
+  turiumFuncsSnippets,
+  turiumFuncsCompletion,
   completeFromGlobalScope,
 } from '@/utils/codeEditorAutocomplete';
 import { conditionBuilder } from '@/utils/shared';
@@ -130,11 +130,11 @@ const props = defineProps({
 const emit = defineEmits(['update']);
 
 const isFirefox = BROWSER_TYPE === 'firefox';
-const autocompleteList = [automaFuncsSnippets.automaRefData];
+const autocompleteList = [turiumFuncsSnippets.turiumRefData];
 const codemirrorExts = [
   autocompletion({
     override: [
-      automaFuncsCompletion(autocompleteList),
+      turiumFuncsCompletion(autocompleteList),
       completeFromGlobalScope,
     ],
   }),

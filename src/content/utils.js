@@ -27,7 +27,7 @@ export function generateLoopSelectors(
   elementsList.forEach((el, index) => {
     if (max > 0 && selectors.length - 1 > max) return;
 
-    const attrName = 'automa-loop';
+    const attrName = 'turium-loop';
     const attrValue = `${attrId}--${(startIndex || 0) + index}`;
 
     el.setAttribute(attrName, attrValue);
@@ -39,7 +39,7 @@ export function generateLoopSelectors(
 
 export function elementSelectorInstance() {
   const rootElementExist = document.querySelector(
-    '#app-container.automa-element-selector'
+    '#app-container.turium-element-selector'
   );
 
   if (rootElementExist) {
@@ -66,7 +66,7 @@ export function getElementRect(target, withAttributes) {
     const attributes = {};
 
     Array.from(target.attributes).forEach(({ name, value }) => {
-      if (name === 'automa-el-list') return;
+      if (name === 'turium-el-list') return;
 
       attributes[name] = value;
     });
@@ -114,7 +114,7 @@ export function generateXPath(element, root = document.body) {
   return null;
 }
 
-export function automaRefDataStr(varName) {
+export function turiumRefDataStr(varName) {
   return `
 function findData(obj, path) {
   const paths = path.split('.');
@@ -139,7 +139,7 @@ function findData(obj, path) {
 
   return result;
 }
-function automaRefData(keyword, path = '') {
+function turiumRefData(keyword, path = '') {
   const data = ${varName}[keyword];
 
   if (!data) return;
@@ -154,7 +154,7 @@ function messageTopFrame(windowCtx) {
     let timeout = null;
 
     const messageListener = ({ data }) => {
-      if (data.type !== 'automa:the-frame-rect') return;
+      if (data.type !== 'turium:the-frame-rect') return;
 
       clearTimeout(timeout);
       windowCtx.removeEventListener('message', messageListener);
@@ -167,7 +167,7 @@ function messageTopFrame(windowCtx) {
     }, 5000);
 
     windowCtx.addEventListener('message', messageListener);
-    windowCtx.top.postMessage({ type: 'automa:get-frame' }, '*');
+    windowCtx.top.postMessage({ type: 'turium:get-frame' }, '*');
   });
 }
 export async function getElementPosition(element) {

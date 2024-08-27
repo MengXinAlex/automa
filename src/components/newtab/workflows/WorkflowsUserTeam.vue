@@ -3,7 +3,7 @@
     <ui-spinner v-if="!userStore.retrieved" color="text-accent" />
     <template v-else>
       You must
-      <a href="https://www.automa.site/auth" class="underline" target="_blank"
+      <a href="https://www.turium.site/auth" class="underline" target="_blank"
         >login</a
       >
       to use these workflows
@@ -19,7 +19,7 @@
       Browse workflows that been shared by your team
     </p>
     <ui-button
-      :href="`http://www.automa.site/workflows?teamId=${teamId}&workflowsBy=team`"
+      :href="`http://www.turium.site/workflows?teamId=${teamId}&workflowsBy=team`"
       tag="a"
       target="_blank"
       variant="accent"

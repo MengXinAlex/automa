@@ -34,8 +34,8 @@ function findScrollableElement(
 function injectStyle() {
   const style = document.createElement('style');
   style.innerText =
-    'html::-webkit-scrollbar, body::-webkit-scrollbar, .automa-scrollable-el::-webkit-scrollbar{ width: 0 !important; height: 0 !important } body.is-screenshotting [is-sticky] { position: relative !important; } .hide-fixed [is-fixed] {visibility: hidden !important; opacity: 0 !important;}';
-  style.id = 'automa-css-scroll';
+    'html::-webkit-scrollbar, body::-webkit-scrollbar, .turium-scrollable-el::-webkit-scrollbar{ width: 0 !important; height: 0 !important } body.is-screenshotting [is-sticky] { position: relative !important; } .hide-fixed [is-fixed] {visibility: hidden !important; opacity: 0 !important;}';
+  style.id = 'turium-css-scroll';
   document.body.appendChild(style);
 
   return style;
@@ -154,7 +154,7 @@ export default async function ({
   const context = canvas.getContext('2d');
   const maxCanvasSize = BROWSER_TYPE === 'firefox' ? 32767 : 65035;
 
-  const scrollElement = document.querySelector('.automa-scrollable-el');
+  const scrollElement = document.querySelector('.turium-scrollable-el');
   let scrollableElement = scrollElement || findScrollableElement();
 
   if (!scrollableElement) {
@@ -163,7 +163,7 @@ export default async function ({
     return imageUrl;
   }
 
-  scrollableElement.classList?.add('automa-scrollable-el');
+  scrollableElement.classList?.add('turium-scrollable-el');
 
   const originalYPosition = window.scrollY;
   let originalScrollHeight = scrollableElement.scrollHeight;

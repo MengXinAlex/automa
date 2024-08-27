@@ -3,7 +3,7 @@ import { messageSandbox } from './helper';
 import renderString from './templating/renderString';
 
 async function javascriptCode(event, refData) {
-  const instanceId = `automa${nanoid()}`;
+  const instanceId = `turium${nanoid()}`;
 
   await messageSandbox('javascriptBlock', {
     refData,

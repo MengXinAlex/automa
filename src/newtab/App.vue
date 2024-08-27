@@ -14,7 +14,7 @@
           </p>
           <ui-button
             tag="a"
-            href="https://www.automa.site/auth"
+            href="https://www.turium.site/auth"
             class="mt-6 block w-full"
             variant="accent"
           >
@@ -33,7 +33,7 @@
           {{ t('updateMessage.text1', { version: currentVersion }) }}
         </p>
         <a
-          :href="`https://github.com/AutomaApp/automa/releases/latest`"
+          :href="`https://github.com/TuriumApp/turium/releases/latest`"
           target="_blank"
           rel="noopener"
           class="ml-1 underline"
@@ -53,7 +53,7 @@
         <p>
           Export your Turium workflows as a standalone extension using
           <a
-            href="https://docs.automa.site/extension-builder/"
+            href="https://docs.turium.site/extension-builder/"
             target="_blank"
             class="underline"
             >Turium Chrome Extension Builder</a
@@ -92,7 +92,7 @@ import { getWorkflowPermissions } from '@/utils/workflowData';
 import { sendMessage } from '@/utils/message';
 import { workflowState, startWorkflowExec } from '@/workflowEngine';
 import emitter from '@/lib/mitt';
-import automa from '@business';
+import turium from '@business';
 import dbLogs from '@/db/logs';
 import dayjs from '@/lib/dayjs';
 import AppLogs from '@/components/newtab/app/AppLogs.vue';
@@ -288,7 +288,7 @@ window.onbeforeunload = () => {
   }
 };
 window.addEventListener('message', ({ data }) => {
-  if (data?.type !== 'automa-fetch') return;
+  if (data?.type !== 'turium-fetch') return;
 
   const sendResponse = (result) => {
     const sandbox = document.getElementById('sandbox');
@@ -378,7 +378,7 @@ watch(
     await dataMigration();
     await userStore.loadUser({ useCache: false, ttl: 2 });
 
-    await automa('app');
+    await turium('app');
 
     retrieved.value = true;
 

@@ -1,23 +1,23 @@
 import { customAlphabet } from 'nanoid/non-secure';
 import browser from 'webextension-polyfill';
-import { automaRefDataStr, checkCSPAndInject } from '../helper';
+import { turiumRefDataStr, checkCSPAndInject } from '../helper';
 
 const nanoid = customAlphabet('1234567890abcdef', 5);
 
-function getAutomaScript(refData) {
-  const varName = `automa${nanoid()}`;
+function getTuriumScript(refData) {
+  const varName = `turium${nanoid()}`;
 
   const str = `
 const ${varName} = ${JSON.stringify(refData)};
-${automaRefDataStr(varName)}
-function automaSetVariable(name, value) {
+${turiumRefDataStr(varName)}
+function turiumSetVariable(name, value) {
   const variables = ${varName}.variables;
   if (!variables) ${varName}.variables = {}
 
   ${varName}.variables[name] = value;
 }
-function automaExecWorkflow(options = {}) {
-  window.dispatchEvent(new CustomEvent('automa:execute-workflow', { detail: options }));
+function turiumExecWorkflow(options = {}) {
+  window.dispatchEvent(new CustomEvent('turium:execute-workflow', { detail: options }));
 }
   `;
 
@@ -54,7 +54,7 @@ async function handleCreateElement(block, { refData }) {
     ...block,
     data: {
       ...data,
-      automaScript: getAutomaScript({ ...refData, secrets: {} }),
+      turiumScript: getTuriumScript({ ...refData, secrets: {} }),
     },
     preloadCSS: data.preloadScripts.filter((item) => item.type === 'style'),
   };
@@ -89,9 +89,9 @@ async function handleCreateElement(block, { refData }) {
           jsPreload += `${item.script}\n`;
         });
 
-        const automaScript = payload.data?.automaScript || '';
+        const turiumScript = payload.data?.turiumScript || '';
 
-        return `(() => { ${jsPreload} \n ${automaScript}\n${data.javascript} })()`;
+        return `(() => { ${jsPreload} \n ${turiumScript}\n${data.javascript} })()`;
       }
     );
 
@@ -102,11 +102,11 @@ async function handleCreateElement(block, { refData }) {
         args: [
           data.javascript,
           block.id,
-          payload.data?.automaScript || '',
+          payload.data?.turiumScript || '',
           preloadScripts,
         ],
-        func: (code, blockId, $automaScript, $preloadScripts) => {
-          const baseId = `automa-${blockId}`;
+        func: (code, blockId, $turiumScript, $preloadScripts) => {
+          const baseId = `turium-${blockId}`;
 
           $preloadScripts.forEach((item) => {
             if (item.type === 'style') return;
@@ -120,7 +120,7 @@ async function handleCreateElement(block, { refData }) {
 
           const script = document.createElement('script');
           script.id = `${baseId}-javascript`;
-          script.textContent = `(() => { ${$automaScript}\n${code} })()`;
+          script.textContent = `(() => { ${$turiumScript}\n${code} })()`;
 
           document.body.appendChild(script);
         },

@@ -23,7 +23,7 @@ async function createElement(block) {
   if (!targetElement) throw new Error('element-not-found');
 
   const { data, id } = block;
-  const baseId = `automa-${id}`;
+  const baseId = `turium-${id}`;
 
   if (data.insertAt === 'replace') {
     const fragments = createNode('template', {}, data.html);
@@ -58,7 +58,7 @@ async function createElement(block) {
 
     const script = document.createElement('script');
     script.id = `${baseId}-javascript`;
-    script.textContent = `(() => { ${data.automaScript}\n${data.javascript} })()`;
+    script.textContent = `(() => { ${data.turiumScript}\n${data.javascript} })()`;
 
     document.body.appendChild(script);
   }

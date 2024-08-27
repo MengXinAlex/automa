@@ -1,7 +1,7 @@
 <template>
   <svg
     v-if="!disabled"
-    class="automa-element-highlighter"
+    class="turium-element-highlighter"
     style="
       height: 100%;
       width: 100%;
@@ -28,7 +28,7 @@
   <teleport to="html">
     <div
       v-if="!disabled"
-      id="automa-selector-overlay"
+      id="turium-selector-overlay"
       style="
         z-index: 9999999;
         position: fixed;
@@ -125,9 +125,9 @@ function getElementRectWithOffset(
   return rect;
 }
 function removeElementsList() {
-  const prevSelectedList = document.querySelectorAll('[automa-el-list]');
+  const prevSelectedList = document.querySelectorAll('[turium-el-list]');
   prevSelectedList.forEach((el) => {
-    el.removeAttribute('automa-el-list');
+    el.removeAttribute('turium-el-list');
   });
 }
 function resetFramesElements(options = {}) {
@@ -137,17 +137,17 @@ function resetFramesElements(options = {}) {
     element.contentWindow.postMessage(
       {
         ...options,
-        type: 'automa:reset-element-selector',
+        type: 'turium:reset-element-selector',
       },
       '*'
     );
   });
 }
 function retrieveElementsRect({ clientX, clientY, target: eventTarget }, type) {
-  const isAutomaContainer = eventTarget.classList.contains(
-    'automa-element-selector'
+  const isTuriumContainer = eventTarget.classList.contains(
+    'turium-element-selector'
   );
-  if (props.disabled || isAutomaContainer) return;
+  if (props.disabled || isTuriumContainer) return;
 
   const isSelectList = props.list && props.selectorType === 'css';
 
@@ -177,7 +177,7 @@ function retrieveElementsRect({ clientX, clientY, target: eventTarget }, type) {
         clientY,
         onlyInList,
         list: isSelectList,
-        type: 'automa:get-element-rect',
+        type: 'turium:get-element-rect',
         withAttributes: props.withAttributes,
       };
 
@@ -273,7 +273,7 @@ function onKeydown(event) {
     mousePosition.x,
     mousePosition.y
   );
-  if (selectedElement.id === 'automa-selector-overlay') return;
+  if (selectedElement.id === 'turium-selector-overlay') return;
 
   event.preventDefault();
   event.stopPropagation();
@@ -288,14 +288,14 @@ function onKeydown(event) {
   );
 }
 function onMousedown(event) {
-  if (event.target.id === 'automa-selector-overlay') {
+  if (event.target.id === 'turium-selector-overlay') {
     event.preventDefault();
     event.stopPropagation();
   }
   retrieveElementsRect(event, 'selected');
 }
 function onMessage({ data }) {
-  if (data.type !== 'automa:iframe-element-rect') return;
+  if (data.type !== 'turium:iframe-element-rect') return;
   if (data.click) {
     const frameSelector =
       props.selectorType === 'css'

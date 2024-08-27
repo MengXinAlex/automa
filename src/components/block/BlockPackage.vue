@@ -83,7 +83,7 @@
     >
       <p>By {{ data.author }}</p>
       <a
-        :href="`https://automa.site/packages/${data.id}`"
+        :href="`https://turium.site/packages/${data.id}`"
         target="_blank"
         title="Open package page"
         class="ml-2"

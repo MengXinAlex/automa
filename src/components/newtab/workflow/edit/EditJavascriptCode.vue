@@ -103,7 +103,7 @@
               <a
                 v-for="func in availableFuncs"
                 :key="func.id"
-                :href="`https://docs.automa.site/blocks/javascript-code.html#${func.id}`"
+                :href="`https://docs.turium.site/blocks/javascript-code.html#${func.id}`"
                 target="_blank"
                 rel="noopener"
                 class="inline-block"
@@ -153,8 +153,8 @@ import { watch, reactive, defineAsyncComponent, inject } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { autocompletion } from '@codemirror/autocomplete';
 import {
-  automaFuncsSnippets,
-  automaFuncsCompletion,
+  turiumFuncsSnippets,
+  turiumFuncsCompletion,
   completeFromGlobalScope,
 } from '@/utils/codeEditorAutocomplete';
 import { store } from '../../settings/jsBlockWrap';
@@ -183,19 +183,19 @@ const { t } = useI18n();
 
 const isFirefox = BROWSER_TYPE === 'firefox';
 const availableFuncs = [
-  { name: 'automaNextBlock(data, insert?)', id: 'automanextblock-data' },
-  { name: 'automaRefData(keyword, path?)', id: 'automarefdata-keyword-path' },
+  { name: 'turiumNextBlock(data, insert?)', id: 'turiumnextblock-data' },
+  { name: 'turiumRefData(keyword, path?)', id: 'turiumrefdata-keyword-path' },
   {
-    name: 'automaSetVariable(name, value)',
-    id: 'automasetvariable-name-value',
+    name: 'turiumSetVariable(name, value)',
+    id: 'turiumsetvariable-name-value',
   },
   {
-    name: 'automaFetch(type, resource)',
-    id: 'automasetvariable-type-resource',
+    name: 'turiumFetch(type, resource)',
+    id: 'turiumsetvariable-type-resource',
   },
-  { name: 'automaResetTimeout()', id: 'automaresettimeout' },
+  { name: 'turiumResetTimeout()', id: 'turiumresettimeout' },
 ];
-const autocompleteList = Object.values(automaFuncsSnippets).slice(0, 4);
+const autocompleteList = Object.values(turiumFuncsSnippets).slice(0, 4);
 
 const workflow = inject('workflow');
 
@@ -216,7 +216,7 @@ function addScript() {
 const codemirrorExts = [
   autocompletion({
     override: [
-      automaFuncsCompletion(autocompleteList),
+      turiumFuncsCompletion(autocompleteList),
       completeFromGlobalScope,
     ],
   }),

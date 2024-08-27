@@ -125,7 +125,7 @@
 import { onMounted, ref, computed } from 'vue';
 import browser from 'webextension-polyfill';
 import workflowParameters from '@business/parameters';
-import automa from '@business';
+import turium from '@business';
 import { useTheme } from '@/composable/theme';
 import dayjs from '@/lib/dayjs';
 import { parseJSON } from '@/utils/helper';
@@ -350,7 +350,7 @@ onMounted(async () => {
     const workflowId = query.get('workflowId');
 
     if (workflowId) addWorkflow(workflowId);
-    await automa('content');
+    await turium('content');
 
     Object.assign(paramsList, workflowParameters());
   } catch (error) {

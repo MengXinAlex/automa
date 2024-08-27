@@ -114,12 +114,12 @@
               <template v-if="selectorSettings.attr">
                 <label
                   class="ml-1 mt-2 block text-sm text-gray-600"
-                  for="automa-attribute-names"
+                  for="turium-attribute-names"
                 >
                   Attribute names
                 </label>
                 <ui-textarea
-                  id="automa-attribute-names"
+                  id="turium-attribute-names"
                   v-model="selectorSettings.attrNames"
                   label="Attribute name"
                   placeholder="data-testid, aria-label, type"
@@ -239,7 +239,7 @@ const updateSelector = debounce((selector) => {
         {
           selectorType,
           selector: elSelector,
-          type: 'automa:find-element',
+          type: 'turium:find-element',
           frameRect: { top, left },
         },
         '*'
@@ -322,7 +322,7 @@ function onMouseup() {
   if (state.isDragging) state.isDragging = false;
 }
 function onMessage({ data }) {
-  if (data.type !== 'automa:selected-elements') return;
+  if (data.type !== 'turium:selected-elements') return;
 
   state.selectedElements = data.elements;
 }
@@ -339,9 +339,9 @@ function destroy() {
     selectedElements: [],
   });
 
-  const prevSelectedList = document.querySelectorAll('[automa-el-list]');
+  const prevSelectedList = document.querySelectorAll('[turium-el-list]');
   prevSelectedList.forEach((element) => {
-    element.removeAttribute('automa-el-list');
+    element.removeAttribute('turium-el-list');
   });
 
   document.documentElement.style.fontSize = originalFontSize;
@@ -384,7 +384,7 @@ function detachListeners() {
 watch(
   () => state.isDragging,
   (value) => {
-    document.body.toggleAttribute('automa-isDragging', value);
+    document.body.toggleAttribute('turium-isDragging', value);
   }
 );
 watch(

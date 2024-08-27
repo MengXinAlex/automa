@@ -48,7 +48,7 @@
         </p>
         <ui-button
           tag="a"
-          href="https://automa.site/auth"
+          href="https://turium.site/auth"
           target="_blank"
           class="mt-4 inline-block w-44"
         >
@@ -58,7 +58,7 @@
       <p v-if="false">
         Upgrade to the
         <a
-          href="https://automa.site/pricing"
+          href="https://turium.site/pricing"
           target="_blank"
           class="text-yellow-500 underline dark:text-yellow-300"
         >

@@ -21,7 +21,7 @@ export async function initElementSelector(tab = null) {
   }
 
   const result = await browser.tabs.sendMessage(activeTab.id, {
-    type: 'automa-element-selector',
+    type: 'turium-element-selector',
   });
 
   if (!result) {

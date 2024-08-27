@@ -1683,7 +1683,7 @@ export default [
             z: 0,
           },
           data: {
-            code: "const keywords = automaRefData('variables', 'keywords');\nautomaSetVariable(\n  'keywords', \n  keywords.split(',').map((keyword) => keyword.trim())\n)",
+            code: "const keywords = turiumRefData('variables', 'keywords');\nturiumSetVariable(\n  'keywords', \n  keywords.split(',').map((keyword) => keyword.trim())\n)",
             description: '',
             disableBlock: false,
             everyNewTab: false,

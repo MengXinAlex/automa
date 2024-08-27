@@ -5,7 +5,7 @@ export function generateStyleEl(css, classes = true) {
   style.textContent = css;
 
   if (classes) {
-    style.classList.add('automa-element-selector');
+    style.classList.add('turium-element-selector');
   }
 
   return style;
@@ -21,12 +21,12 @@ export default async function (appRoot, customCss = '') {
     appRoot.appendChild(appStyleEl);
 
     const fontStyleExists = document.head.querySelector(
-      '.automa-element-selector'
+      '.turium-element-selector'
     );
 
     if (!fontStyleExists) {
       const commonCSS =
-        '\n.automa-element-selector { direction: ltr } \n [automa-isDragging] { user-select: none } \n [automa-el-list] {outline: 2px dashed #6366f1;}';
+        '\n.turium-element-selector { direction: ltr } \n [turium-isDragging] { user-select: none } \n [turium-el-list] {outline: 2px dashed #6366f1;}';
 
       const fontURL = browser.runtime.getURL('/Inter-roman-latin.var.woff2');
       const fontCSS = `@font-face { font-family: "Inter var"; font-weight: 100 900; font-display: swap; font-style: normal; font-named-instance: "Regular"; src: url("${fontURL}") format("woff2") }`;

@@ -1,10 +1,10 @@
 export default function (data) {
-  const propertyName = `automa${data.id}`;
+  const propertyName = `turium${data.id}`;
 
   const script = document.createElement('script');
   script.textContent = `
     (async () => {
-      function automaRefData(keyword, path = '') {
+      function turiumRefData(keyword, path = '') {
         if (!keyword) return null;
         if (!path) return ${propertyName}.refData[keyword];
 

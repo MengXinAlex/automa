@@ -1,12 +1,12 @@
 import { customAlphabet } from 'nanoid/non-secure';
 import browser from 'webextension-polyfill';
-import { automaRefDataStr, messageSandbox, checkCSPAndInject } from '../helper';
+import { turiumRefDataStr, messageSandbox, checkCSPAndInject } from '../helper';
 
 const nanoid = customAlphabet('1234567890abcdef', 5);
 const isMV2 = browser.runtime.getManifest().manifest_version === 2;
 
 export default async function (activeTab, payload) {
-  const variableId = `automa${nanoid()}`;
+  const variableId = `turium${nanoid()}`;
 
   if (
     !payload.data.context ||
@@ -15,7 +15,7 @@ export default async function (activeTab, payload) {
   ) {
     if (!activeTab.id) throw new Error('no-tab');
 
-    const refDataScriptStr = automaRefDataStr(variableId);
+    const refDataScriptStr = turiumRefDataStr(variableId);
 
     if (!isMV2) {
       const result = await checkCSPAndInject(
@@ -70,17 +70,17 @@ export default async function (activeTab, payload) {
               }
             })()
               .then((detail) => {
-                window.dispatchEvent(new CustomEvent('__automa-condition-code__', { detail }));
+                window.dispatchEvent(new CustomEvent('__turium-condition-code__', { detail }));
               });
           `;
 
           document.documentElement.appendChild(scriptEl);
 
-          const handleAutomaEvent = ({ detail }) => {
+          const handleTuriumEvent = ({ detail }) => {
             scriptEl.remove();
             window.removeEventListener(
-              '__automa-condition-code__',
-              handleAutomaEvent
+              '__turium-condition-code__',
+              handleTuriumEvent
             );
 
             if (detail.$isError) {
@@ -92,8 +92,8 @@ export default async function (activeTab, payload) {
           };
 
           window.addEventListener(
-            '__automa-condition-code__',
-            handleAutomaEvent
+            '__turium-condition-code__',
+            handleTuriumEvent
           );
         });
       },

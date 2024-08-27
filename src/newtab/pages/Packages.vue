@@ -113,7 +113,7 @@
                   <ui-list-item
                     v-if="pkg.isExternal"
                     v-close-popover
-                    :href="`https://automa.site/packages/${pkg.id}`"
+                    :href="`https://turium.site/packages/${pkg.id}`"
                     tag="a"
                     target="_blank"
                     class="cursor-pointer"
@@ -289,7 +289,7 @@ function exportPackage(pkg) {
 
   const blobUrl = dataExporter(
     copyPkg,
-    { type: 'json', name: `${pkg.name}.automa-pkg` },
+    { type: 'json', name: `${pkg.name}.turium-pkg` },
     true
   );
   URL.revokeObjectURL(blobUrl);

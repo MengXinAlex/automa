@@ -37,15 +37,15 @@ export default function (data, enable) {
 
   const block = tasks[data.label];
   if (!block) return () => {};
-  let container = document.querySelector('.automa-executed-block');
+  let container = document.querySelector('.turium-executed-block');
 
   if (!container) {
     container = document.createElement('div');
-    container.classList.add('automa-executed-block');
+    container.classList.add('turium-executed-block');
     document.body.appendChild(container);
 
     const style = document.createElement('style');
-    style.classList.add('automa-executed-block');
+    style.classList.add('turium-executed-block');
     style.innerHTML = `
       @keyframes spin {
         from {
@@ -56,13 +56,13 @@ export default function (data, enable) {
         }
       }
 
-      .automa-executed-block .opacity-25 {
+      .turium-executed-block .opacity-25 {
         opacity: 0.25;
       }
-      .automa-executed-block .opacity-75 {
+      .turium-executed-block .opacity-75 {
         opacity: 0.75;
       }
-      .automa-executed-block {
+      .turium-executed-block {
         color: #18181b;
         width: 250px;
         position: fixed;
@@ -76,12 +76,12 @@ export default function (data, enable) {
         box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         z-index: 99999;
       }
-      .automa-executed-block #spinner {
+      .turium-executed-block #spinner {
         color: currentColor;
         display: inline-block;
         animation: spin 1s linear infinite;
       }
-      .automa-executed-block p {
+      .turium-executed-block p {
         margin: 0;
         padding: 0;
         margin-left: 8px;
@@ -92,7 +92,7 @@ export default function (data, enable) {
   container.innerHTML = generateElement(block);
 
   return () => {
-    const elements = document.querySelectorAll('.automa-executed-block');
+    const elements = document.querySelectorAll('.turium-executed-block');
     elements.forEach((el) => {
       el.remove();
     });

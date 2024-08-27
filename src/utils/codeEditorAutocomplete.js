@@ -56,7 +56,7 @@ export function completeFromGlobalScope(context) {
   return null;
 }
 
-export function automaFuncsCompletion(snippets) {
+export function turiumFuncsCompletion(snippets) {
   return function (context) {
     const word = context.matchBefore(/\w*/);
     const nodeBefore = syntaxTree(context.state).resolveInner(context.pos, -1);
@@ -74,19 +74,19 @@ export function automaFuncsCompletion(snippets) {
   };
 }
 
-export const automaFuncsSnippets = {
-  automaNextBlock: {
-    label: 'automaNextBlock',
+export const turiumFuncsSnippets = {
+  turiumNextBlock: {
+    label: 'turiumNextBlock',
     type: 'function',
-    apply: snippet('automaNextBlock(${data})'),
+    apply: snippet('turiumNextBlock(${data})'),
     info: () => {
       const container = document.createElement('div');
 
       container.innerHTML = `
-        <code>automaNextBlock(<i>data</i>, <i>insert?</i>)</code>
+        <code>turiumNextBlock(<i>data</i>, <i>insert?</i>)</code>
         <p class="mt-2">
           Execute the next block
-          <a href="https://docs.automa.site/blocks/javascript-code.html#automanextblock-data" target="_blank" class="underline">
+          <a href="https://docs.turium.site/blocks/javascript-code.html#turiumnextblock-data" target="_blank" class="underline">
             Read more
           </a>
         </p>
@@ -95,15 +95,15 @@ export const automaFuncsSnippets = {
       return container;
     },
   },
-  automaSetVariable: {
-    label: 'automaSetVariable',
+  turiumSetVariable: {
+    label: 'turiumSetVariable',
     type: 'function',
-    apply: snippet("automaSetVariable('${name}', ${value})"),
+    apply: snippet("turiumSetVariable('${name}', ${value})"),
     info: () => {
       const container = document.createElement('div');
 
       container.innerHTML = `
-        <code>automaRefData(<i>name</i>, <i>value</i>)</code>
+        <code>turiumRefData(<i>name</i>, <i>value</i>)</code>
         <p class="mt-2">
           Set the value of a variable
         </p>
@@ -112,32 +112,32 @@ export const automaFuncsSnippets = {
       return container;
     },
   },
-  automaFetch: {
-    label: 'automaFetch',
+  turiumFetch: {
+    label: 'turiumFetch',
     type: 'function',
-    apply: snippet("automaFetch('${json}', { url: '${}' })"),
+    apply: snippet("turiumFetch('${json}', { url: '${}' })"),
     info: () => {
       const container = document.createElement('div');
 
       container.innerHTML = `
-        <code>automaFetch(<i>type</i>, <i>resource</i>)</code>
+        <code>turiumFetch(<i>type</i>, <i>resource</i>)</code>
       `;
 
       return container;
     },
   },
-  automaRefData: {
-    label: 'automaRefData',
+  turiumRefData: {
+    label: 'turiumRefData',
     type: 'function',
-    apply: snippet("automaRefData('${keyword}', '${path}')"),
+    apply: snippet("turiumRefData('${keyword}', '${path}')"),
     info: () => {
       const container = document.createElement('div');
 
       container.innerHTML = `
-        <code>automaRefData(<i>keyword</i>, <i>path</i>)</code>
+        <code>turiumRefData(<i>keyword</i>, <i>path</i>)</code>
         <p class="mt-2">
           Use this function to
-          <a href="https://docs.automa.site/workflow/expressions.html" target="_blank" class="underline">
+          <a href="https://docs.turium.site/workflow/expressions.html" target="_blank" class="underline">
             reference data
           </a>
         </p>
@@ -146,21 +146,21 @@ export const automaFuncsSnippets = {
       return container;
     },
   },
-  automaResetTimeout: {
-    label: 'automaResetTimeout',
+  turiumResetTimeout: {
+    label: 'turiumResetTimeout',
     type: 'function',
     info: 'Reset javascript execution timeout',
-    apply: 'automaResetTimeout()',
+    apply: 'turiumResetTimeout()',
   },
-  automaExecWorkflow: {
-    label: 'automaExecWorkflow',
+  turiumExecWorkflow: {
+    label: 'turiumExecWorkflow',
     type: 'function',
-    apply: snippet("automaExecWorkflow({ id: '${workflowId}' })"),
+    apply: snippet("turiumExecWorkflow({ id: '${workflowId}' })"),
     info: () => {
       const container = document.createElement('div');
 
       container.innerHTML = `
-        <code>automaRefData(<i>options</i>)</code>
+        <code>turiumRefData(<i>options</i>)</code>
         <p class="mt-2">
           Execute a workflow
         </p>

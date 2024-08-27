@@ -41,7 +41,7 @@
       "all_frames": true
     },
     {
-      "matches": ["*://*.automa.site/*", "*://automa.vercel.app/*"],
+      "matches": ["*://*.turium.site/*", "*://turium.vercel.app/*"],
       "js": ["webService.bundle.js"],
       "run_at": "document_start",
       "all_frames": false

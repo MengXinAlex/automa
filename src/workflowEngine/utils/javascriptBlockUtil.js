@@ -1,6 +1,6 @@
 import { getDocumentCtx } from '@/content/handleSelector';
 
-export function automaFetchClient(id, { type, resource }) {
+export function turiumFetchClient(id, { type, resource }) {
   return new Promise((resolve, reject) => {
     const validType = ['text', 'json', 'base64'];
     if (!type || !validType.includes(type)) {
@@ -8,7 +8,7 @@ export function automaFetchClient(id, { type, resource }) {
       return;
     }
 
-    const eventName = `__automa-fetch-response-${id}__`;
+    const eventName = `__turium-fetch-response-${id}__`;
     const eventListener = ({ detail }) => {
       if (detail.id !== id) return;
 
@@ -23,7 +23,7 @@ export function automaFetchClient(id, { type, resource }) {
 
     window.addEventListener(eventName, eventListener);
     window.dispatchEvent(
-      new CustomEvent(`__automa-fetch__`, {
+      new CustomEvent(`__turium-fetch__`, {
         detail: {
           id,
           type,
@@ -36,7 +36,7 @@ export function automaFetchClient(id, { type, resource }) {
 
 export function jsContentHandlerEval({
   blockData,
-  automaScript,
+  turiumScript,
   preloadScripts,
 }) {
   const preloadScriptsStr = preloadScripts
@@ -46,20 +46,20 @@ export function jsContentHandlerEval({
   return `(() => {
     ${preloadScriptsStr}
 
-    return new Promise(($automaResolve) => {
-      const $automaTimeoutMs = ${blockData.data.timeout};
-      let $automaTimeout = setTimeout(() => {
-        $automaResolve();
-      }, $automaTimeoutMs);
+    return new Promise(($turiumResolve) => {
+      const $turiumTimeoutMs = ${blockData.data.timeout};
+      let $turiumTimeout = setTimeout(() => {
+        $turiumResolve();
+      }, $turiumTimeoutMs);
 
-      ${automaScript}
+      ${turiumScript}
 
       ${blockData.data.code}
 
       ${
-        blockData.data.code.includes('automaNextBlock')
+        blockData.data.code.includes('turiumNextBlock')
           ? ''
-          : 'automaNextBlock()'
+          : 'turiumNextBlock()'
       }
     }).catch((error) => {
       return { columns: { data: { $error: true, message: error.message } } }
@@ -67,7 +67,7 @@ export function jsContentHandlerEval({
   })();`;
 }
 
-export function jsContentHandler($blockData, $preloadScripts, $automaScript) {
+export function jsContentHandler($blockData, $preloadScripts, $turiumScript) {
   return new Promise((resolve, reject) => {
     try {
       let $documentCtx = document;
@@ -85,7 +85,7 @@ export function jsContentHandler($blockData, $preloadScripts, $automaScript) {
       const scriptAttr = `block--${$blockData.id}`;
 
       const isScriptExists = $documentCtx.querySelector(
-        `.automa-custom-js[${scriptAttr}]`
+        `.turium-custom-js[${scriptAttr}]`
       );
       if (isScriptExists) {
         resolve('');
@@ -94,24 +94,24 @@ export function jsContentHandler($blockData, $preloadScripts, $automaScript) {
 
       const script = document.createElement('script');
       script.setAttribute(scriptAttr, '');
-      script.classList.add('automa-custom-js');
+      script.classList.add('turium-custom-js');
       script.textContent = `(() => {
-        ${$automaScript}
+        ${$turiumScript}
 
         try {
           ${$blockData.data.code}
           ${
             $blockData.data.everyNewTab ||
-            $blockData.data.code.includes('automaNextBlock')
+            $blockData.data.code.includes('turiumNextBlock')
               ? ''
-              : 'automaNextBlock()'
+              : 'turiumNextBlock()'
           }
         } catch (error) {
           console.error(error);
           ${
             $blockData.data.everyNewTab
               ? ''
-              : 'automaNextBlock({ $error: true, message: error.message })'
+              : 'turiumNextBlock({ $error: true, message: error.message })'
           }
         }
       })()`;
@@ -141,11 +141,11 @@ export function jsContentHandler($blockData, $preloadScripts, $automaScript) {
           clearTimeout(timeout);
 
           $documentCtx.body.removeEventListener(
-            '__automa-reset-timeout__',
+            '__turium-reset-timeout__',
             onResetTimeout
           );
           $documentCtx.body.removeEventListener(
-            '__automa-next-block__',
+            '__turium-next-block__',
             onNextBlock
           );
         }
@@ -174,11 +174,11 @@ export function jsContentHandler($blockData, $preloadScripts, $automaScript) {
         };
 
         $documentCtx.body.addEventListener(
-          '__automa-next-block__',
+          '__turium-next-block__',
           onNextBlock
         );
         $documentCtx.body.addEventListener(
-          '__automa-reset-timeout__',
+          '__turium-reset-timeout__',
           onResetTimeout
         );
 

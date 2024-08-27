@@ -22,7 +22,7 @@ export default function ({
   }
 
   if (list) {
-    const isInList = target.closest('[automa-el-list]');
+    const isInList = target.closest('[turium-el-list]');
 
     if (isInList) {
       const childSelector = findSelector(target, {
@@ -30,7 +30,7 @@ export default function ({
         ...selectorOptions,
         idName: () => false,
       });
-      const listSelector = isInList.getAttribute('automa-el-list');
+      const listSelector = isInList.getAttribute('turium-el-list');
 
       selector = `${listSelector} ${childSelector}`;
     } else {
@@ -40,13 +40,13 @@ export default function ({
       );
       selector = `${parentSelector} > ${selectedElement.tagName.toLowerCase()}`;
 
-      const prevSelectedList = documentCtx.querySelectorAll('[automa-el-list]');
+      const prevSelectedList = documentCtx.querySelectorAll('[turium-el-list]');
       prevSelectedList.forEach((el) => {
-        el.removeAttribute('automa-el-list');
+        el.removeAttribute('turium-el-list');
       });
 
       hoveredElements.forEach((el) => {
-        el.setAttribute('automa-el-list', selector);
+        el.setAttribute('turium-el-list', selector);
       });
     }
   } else {

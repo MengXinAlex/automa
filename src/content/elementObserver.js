@@ -6,12 +6,12 @@ import FindElement from '@/utils/FindElement';
 const observeElements = {};
 
 const targetMutationCallback = debounce(([{ target }]) => {
-  let workflowId = target.getAttribute('automa-id');
+  let workflowId = target.getAttribute('turium-id');
 
   if (!workflowId) {
-    const element = target.closest('[automa-id]');
+    const element = target.closest('[turium-id]');
     if (!element) return;
-    workflowId = element.getAttribute('automa-id');
+    workflowId = element.getAttribute('turium-id');
   }
   if (!observeElements[workflowId]) return;
 
@@ -56,7 +56,7 @@ function tryObserve({ selector, observer, options, id }) {
       return;
     }
 
-    if (id) element.setAttribute('automa-id', id);
+    if (id) element.setAttribute('turium-id', id);
 
     if (!options.attributes || options.attributeFilter.length === 0)
       delete options.attributeFilter;

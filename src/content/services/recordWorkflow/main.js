@@ -17,8 +17,8 @@ const customCSS = `
 export default function () {
   const rootElement = document.createElement('div');
   rootElement.attachShadow({ mode: 'open' });
-  rootElement.setAttribute('id', 'automa-recording');
-  rootElement.classList.add('automa-element-selector');
+  rootElement.setAttribute('id', 'turium-recording');
+  rootElement.classList.add('turium-element-selector');
   document.body.appendChild(rootElement);
 
   return injectAppStyles(rootElement.shadowRoot, customCSS).then(() => {

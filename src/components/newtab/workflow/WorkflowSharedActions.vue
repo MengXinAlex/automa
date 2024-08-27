@@ -3,7 +3,7 @@
     <ui-input
       v-tooltip="t('workflow.share.url')"
       prepend-icon="riLinkM"
-      :model-value="`https://automa.site/workflow/${workflow.id}`"
+      :model-value="`https://turium.site/workflow/${workflow.id}`"
       readonly
       @click="$event.target.select()"
     />

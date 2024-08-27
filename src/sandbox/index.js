@@ -7,7 +7,7 @@ window.$getNestedProperties = objectPath.get;
 
 function fetchResponse({ id, data }) {
   window.dispatchEvent(
-    new CustomEvent(`automa-fetch-response-${id}`, {
+    new CustomEvent(`turium-fetch-response-${id}`, {
       detail: data,
     })
   );

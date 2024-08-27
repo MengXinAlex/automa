@@ -12,7 +12,7 @@ function initWebListener() {
     (listeners[name] = listeners[name] || []).push(callback);
   }
 
-  window.addEventListener('__automa-ext__', ({ detail }) => {
+  window.addEventListener('__turium-ext__', ({ detail }) => {
     if (!detail || !objectHasKey(listeners, detail.type)) return;
 
     listeners[detail.type].forEach((listener) => {
@@ -23,7 +23,7 @@ function initWebListener() {
   return { on };
 }
 function sendMessageBack(type, payload = {}) {
-  const event = new CustomEvent(`__automa-ext__${type}`, {
+  const event = new CustomEvent(`__turium-ext__${type}`, {
     detail: payload,
   });
 
@@ -38,7 +38,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     );
 
     const { workflows } = await browser.storage.local.get('workflows');
-    const db = await openDB('automa', 1, {
+    const db = await openDB('turium', 1, {
       upgrade(event) {
         event.createObjectStore('store');
       },
@@ -147,7 +147,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       const workflowExist = Boolean(teamWorkflows?.[teamId]?.[workflowId]);
 
       window.dispatchEvent(
-        new CustomEvent('__automa-team-workflow__', {
+        new CustomEvent('__turium-team-workflow__', {
           detail: { exists: workflowExist },
         })
       );

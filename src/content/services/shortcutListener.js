@@ -6,7 +6,7 @@ Mousetrap.prototype.stopCallback = function () {
   return false;
 };
 
-function automaCustomEventListener(findWorkflow) {
+function turiumCustomEventListener(findWorkflow) {
   function customEventListener({ detail }) {
     if (!detail || (!detail.id && !detail.publicId)) return;
 
@@ -21,8 +21,8 @@ function automaCustomEventListener(findWorkflow) {
     sendMessage('workflow:execute', workflow, 'background');
   }
 
-  window.addEventListener('__automaExecuteWorkflow', customEventListener);
-  window.addEventListener('automa:execute-workflow', customEventListener);
+  window.addEventListener('__turiumExecuteWorkflow', customEventListener);
+  window.addEventListener('turium:execute-workflow', customEventListener);
 }
 function workflowShortcutsListener(findWorkflow, shortcutsObj) {
   const shortcuts = Object.entries(shortcutsObj);
@@ -97,17 +97,17 @@ export default async function () {
       return workflow;
     };
 
-    browser.storage.onChanged.addListener(({ automaShortcut, shortcuts }) => {
-      if (automaShortcut) {
+    browser.storage.onChanged.addListener(({ turiumShortcut, shortcuts }) => {
+      if (turiumShortcut) {
         if (
-          Array.isArray(automaShortcut.newValue) &&
-          automaShortcut.newValue.length < 1
+          Array.isArray(turiumShortcut.newValue) &&
+          turiumShortcut.newValue.length < 1
         ) {
-          window._automaShortcuts = [];
+          window._turiumShortcuts = [];
         } else {
-          const automaShortcutArr = automaShortcut.newValue.split('+');
+          const turiumShortcutArr = turiumShortcut.newValue.split('+');
 
-          window._automaShortcuts = automaShortcutArr;
+          window._turiumShortcuts = turiumShortcutArr;
         }
       }
       if (shortcuts) {
@@ -119,7 +119,7 @@ export default async function () {
       }
     });
 
-    automaCustomEventListener(findWorkflow);
+    turiumCustomEventListener(findWorkflow);
     workflowShortcutsListener(findWorkflow, storage.shortcuts || {});
   } catch (error) {
     console.error(error);

@@ -371,22 +371,22 @@ function clearSelectState() {
   selectState.isSelecting = false;
   selectState.selectedElements = [];
 
-  const selectedList = document.querySelectorAll('[automa-el-list]');
+  const selectedList = document.querySelectorAll('[turium-el-list]');
   selectedList.forEach((element) => {
-    element.removeAttribute('automa-el-list');
+    element.removeAttribute('turium-el-list');
   });
 
   const frameElements = document.querySelectorAll('iframe, frame');
   frameElements.forEach((element) => {
     element.contentWindow.postMessage(
       {
-        type: 'automa:reset-element-selector',
+        type: 'turium:reset-element-selector',
       },
       '*'
     );
   });
 
-  document.body.removeAttribute('automa-selecting');
+  document.body.removeAttribute('turium-selecting');
 }
 function saveElementListId() {
   if (!tempListId.value) return;
@@ -431,7 +431,7 @@ function startSelecting(list = false) {
   selectState.isSelecting = true;
   selectState.status = 'selecting';
 
-  document.body.setAttribute('automa-selecting', '');
+  document.body.setAttribute('turium-selecting', '');
 
   window.addEventListener('keyup', onKeyup);
 }

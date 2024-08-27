@@ -12,7 +12,7 @@
         {{ t('auth.username') }}.
         <a
           class="underline"
-          href="https://automa.site/profile?username=true"
+          href="https://turium.site/profile?username=true"
           target="_blank"
         >
           {{ t('auth.clickHere') }}

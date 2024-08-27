@@ -72,7 +72,7 @@
             <div class="grow" />
             <a
               v-if="item.isExternal"
-              :href="`https://automa.site/packages/${item.id}`"
+              :href="`https://turium.site/packages/${item.id}`"
               target="_blank"
               title="Open package page"
             >

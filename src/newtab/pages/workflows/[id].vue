@@ -97,7 +97,7 @@
           <ui-input
             v-tooltip="'Workflow URL'"
             prepend-icon="riLinkM"
-            :model-value="`https://automa.site/teams/${teamId}/workflows/${workflow.id}`"
+            :model-value="`https://turium.site/teams/${teamId}/workflows/${workflow.id}`"
             readonly
             @click="$event.target.select()"
           />
@@ -427,7 +427,7 @@ const workflowModals = {
     width: 'max-w-2xl',
     component: WorkflowDataTable,
     title: t('workflow.table.title'),
-    docs: 'https://docs.automa.site/workflow/table.html',
+    docs: 'https://docs.turium.site/workflow/table.html',
     events: {
       /* eslint-disable-next-line */
       connect: fetchConnectedTable,
@@ -479,7 +479,7 @@ const workflowModals = {
     icon: 'riDatabase2Line',
     component: WorkflowGlobalData,
     title: t('common.globalData'),
-    docs: 'https://docs.automa.site/workflow/global-data.html',
+    docs: 'https://docs.turium.site/workflow/global-data.html',
   },
   settings: {
     width: 'max-w-2xl',
@@ -1424,7 +1424,7 @@ function copySelectedElements(data = {}) {
   const edges = data.edges || editor.value.getSelectedEdges.value;
 
   const clipboardData = JSON.stringify({
-    name: 'automa-blocks',
+    name: 'turium-blocks',
     data: { nodes, edges },
   });
   navigator.clipboard.writeText(clipboardData).catch((error) => {
@@ -1447,7 +1447,7 @@ async function pasteCopiedElements(position) {
     const copiedText = await navigator.clipboard.readText();
     const workflowBlocks = parseJSON(copiedText);
 
-    if (workflowBlocks && workflowBlocks.name === 'automa-blocks') {
+    if (workflowBlocks && workflowBlocks.name === 'turium-blocks') {
       const { nodes, edges } = copyElements(
         workflowBlocks.data.nodes,
         workflowBlocks.data.edges,

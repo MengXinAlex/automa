@@ -25,19 +25,19 @@ export default async function () {
     const isInvalidURL = /.(json|xml)$/.test(window.location.pathname);
     if (isInvalidURL) return;
 
-    const { automaShortcut } = await browser.storage.local.get(
-      'automaShortcut'
+    const { turiumShortcut } = await browser.storage.local.get(
+      'turiumShortcut'
     );
-    if (Array.isArray(automaShortcut) && automaShortcut.length === 0) return;
+    if (Array.isArray(turiumShortcut) && turiumShortcut.length === 0) return;
 
     await pageLoaded();
 
-    const instanceExist = document.querySelector('automa-palette');
+    const instanceExist = document.querySelector('turium-palette');
     if (instanceExist) return;
 
     const element = document.createElement('div');
     element.attachShadow({ mode: 'open' });
-    element.id = 'automa-palette';
+    element.id = 'turium-palette';
 
     await injectAppStyles(element.shadowRoot);
     initApp(element);

@@ -7,7 +7,7 @@
     <ui-list>
       <ui-list-item class="group">
         <p class="flex-1">Shortcut</p>
-        <template v-if="recording.id === 'automa:shortcut'">
+        <template v-if="recording.id === 'turium:shortcut'">
           <kbd v-for="key in recording.keys" :key="key">
             {{ getReadableShortcut(key) }}
           </kbd>
@@ -29,18 +29,18 @@
           <button
             v-tooltip="'Remove shortcut'"
             class="invisible mr-4 group-hover:visible"
-            @click="removeShortcut('automa:shortcut')"
+            @click="removeShortcut('turium:shortcut')"
           >
             <v-remixicon name="riDeleteBin7Line" />
           </button>
           <button
             v-tooltip="t('workflow.blocks.trigger.shortcut.tooltip')"
             class="invisible group-hover:visible"
-            @click="startRecording({ id: 'automa:shortcut' })"
+            @click="startRecording({ id: 'turium:shortcut' })"
           >
             <v-remixicon name="riRecordCircleLine" />
           </button>
-          <kbd v-for="key in automaShortcut.split('+')" :key="key">
+          <kbd v-for="key in turiumShortcut.split('+')" :key="key">
             {{ key }}
           </kbd>
         </template>
@@ -108,7 +108,7 @@ const { t } = useI18n();
 const toast = useToast();
 
 const shortcuts = ref(mapShortcuts);
-const automaShortcut = ref(getReadableShortcut('mod+shift+e'));
+const turiumShortcut = ref(getReadableShortcut('mod+shift+e'));
 const recording = reactive({
   id: '',
   keys: [],
@@ -162,19 +162,19 @@ function startRecording({ id }) {
   recording.id = id;
 }
 function removeShortcut(shortcutId) {
-  if (shortcutId !== 'automa:shortcut') return;
+  if (shortcutId !== 'turium:shortcut') return;
 
-  browser.storage.local.set({ automaShortcut: [] });
-  automaShortcut.value = '';
+  browser.storage.local.set({ turiumShortcut: [] });
+  turiumShortcut.value = '';
 }
 function stopRecording() {
   if (recording.keys.length === 0) return;
 
   const newCombo = recording.keys.join('+');
 
-  if (recording.id.startsWith('automa')) {
-    browser.storage.local.set({ automaShortcut: newCombo });
-    automaShortcut.value = getReadableShortcut(newCombo);
+  if (recording.id.startsWith('turium')) {
+    browser.storage.local.set({ turiumShortcut: newCombo });
+    turiumShortcut.value = getReadableShortcut(newCombo);
     cleanUp();
 
     return;
@@ -199,10 +199,10 @@ function stopRecording() {
 }
 
 onMounted(() => {
-  browser.storage.local.get('automaShortcut').then((storage) => {
-    if (!storage.automaShortcut) return;
+  browser.storage.local.get('turiumShortcut').then((storage) => {
+    if (!storage.turiumShortcut) return;
 
-    automaShortcut.value = getReadableShortcut(storage.automaShortcut);
+    turiumShortcut.value = getReadableShortcut(storage.turiumShortcut);
   });
 });
 onBeforeUnmount(() => {

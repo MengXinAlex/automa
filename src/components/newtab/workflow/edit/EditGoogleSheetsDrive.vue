@@ -3,7 +3,7 @@
     <p>
       You haven't
       <a
-        href="https://docs.automa.site/integrations/google-drive.html"
+        href="https://docs.turium.site/integrations/google-drive.html"
         target="_blank"
         class="underline"
         >connected Turium to Google Drive</a

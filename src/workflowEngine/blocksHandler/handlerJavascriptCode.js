@@ -4,31 +4,31 @@ import cloneDeep from 'lodash.clonedeep';
 import { parseJSON, isObject } from '@/utils/helper';
 import {
   jsContentHandler,
-  automaFetchClient,
+  turiumFetchClient,
   jsContentHandlerEval,
 } from '../utils/javascriptBlockUtil';
 import {
   waitTabLoaded,
   messageSandbox,
-  automaRefDataStr,
+  turiumRefDataStr,
   checkCSPAndInject,
 } from '../helper';
 
 const nanoid = customAlphabet('1234567890abcdef', 5);
 
-function getAutomaScript({ varName, refData, everyNewTab, isEval = false }) {
+function getTuriumScript({ varName, refData, everyNewTab, isEval = false }) {
   let str = `
 const ${varName} = ${JSON.stringify(refData)};
-${automaRefDataStr(varName)}
-function automaSetVariable(name, value) {
+${turiumRefDataStr(varName)}
+function turiumSetVariable(name, value) {
   const variables = ${varName}.variables;
   if (!variables) ${varName}.variables = {}
 
   ${varName}.variables[name] = value;
 }
-function automaNextBlock(data, insert = true) {
+function turiumNextBlock(data, insert = true) {
   if (${isEval}) {
-    $automaResolve({
+    $turiumResolve({
       columns: {
         data,
         insert,
@@ -36,25 +36,25 @@ function automaNextBlock(data, insert = true) {
       variables: ${varName}.variables,
     });
   } else{
-    document.body.dispatchEvent(new CustomEvent('__automa-next-block__', { detail: { data, insert, refData: ${varName} } }));
+    document.body.dispatchEvent(new CustomEvent('__turium-next-block__', { detail: { data, insert, refData: ${varName} } }));
   }
 }
-function automaResetTimeout() {
+function turiumResetTimeout() {
   if (${isEval}) {
-    clearTimeout($automaTimeout);
-    $automaTimeout = setTimeout(() => {
+    clearTimeout($turiumTimeout);
+    $turiumTimeout = setTimeout(() => {
       resolve();
-    }, $automaTimeoutMs);
+    }, $turiumTimeoutMs);
   } else {
-    document.body.dispatchEvent(new CustomEvent('__automa-reset-timeout__'));
+    document.body.dispatchEvent(new CustomEvent('__turium-reset-timeout__'));
   }
 }
-function automaFetch(type, resource) {
-  return (${automaFetchClient.toString()})('${varName}', { type, resource });
+function turiumFetch(type, resource) {
+  return (${turiumFetchClient.toString()})('${varName}', { type, resource });
 }
   `;
 
-  if (everyNewTab) str = automaRefDataStr(varName);
+  if (everyNewTab) str = turiumRefDataStr(varName);
 
   return str;
 }
@@ -77,7 +77,7 @@ async function executeInWebpage(args, target, worker) {
   const { debugMode } = worker.engine.workflow.settings;
   const cspResult = await checkCSPAndInject({ target, debugMode }, () => {
     const { 0: blockData, 1: preloadScripts, 3: varName } = args;
-    const automaScript = getAutomaScript({
+    const turiumScript = getTuriumScript({
       varName,
       isEval: true,
       refData: blockData.refData,
@@ -85,7 +85,7 @@ async function executeInWebpage(args, target, worker) {
     });
     const jsCode = jsContentHandlerEval({
       blockData,
-      automaScript,
+      turiumScript,
       preloadScripts,
     });
 
@@ -126,7 +126,7 @@ export async function javascriptCode({ outputs, data, ...block }, { refData }) {
     refData: { variables: {} },
     frameSelector: this.frameSelector,
   };
-  if (data.code.includes('automaRefData')) {
+  if (data.code.includes('turiumRefData')) {
     const newRefData = {};
     Object.keys(refData).forEach((keyword) => {
       if (!data.code.includes(keyword)) return;
@@ -150,7 +150,7 @@ export async function javascriptCode({ outputs, data, ...block }, { refData }) {
 
       return {
         script: result,
-        id: `automa-script-${nanoid()}`,
+        id: `turium-script-${nanoid()}`,
         removeAfterExec: script.removeAfterExec,
       };
     })
@@ -161,11 +161,11 @@ export async function javascriptCode({ outputs, data, ...block }, { refData }) {
     return acc;
   }, []);
 
-  const instanceId = `automa${nanoid()}`;
-  const automaScript =
+  const instanceId = `turium${nanoid()}`;
+  const turiumScript =
     data.everyNewTab && (!data.context || data.context !== 'background')
       ? ''
-      : getAutomaScript({
+      : getTuriumScript({
           varName: instanceId,
           refData: payload.refData,
           everyNewTab: data.everyNewTab,
@@ -190,7 +190,7 @@ export async function javascriptCode({ outputs, data, ...block }, { refData }) {
         blockData: cloneDeep(payload.data),
       })
     : executeInWebpage(
-        [payload, preloadScripts, automaScript, instanceId],
+        [payload, preloadScripts, turiumScript, instanceId],
         {
           tabId: this.activeTab.id,
           frameIds: [this.activeTab.frameId || 0],

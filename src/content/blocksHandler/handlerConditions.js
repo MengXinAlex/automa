@@ -1,6 +1,6 @@
 import { customAlphabet } from 'nanoid/non-secure';
 import { visibleInViewport, isXPath } from '@/utils/helper';
-import { automaRefDataStr } from '@/workflowEngine/helper';
+import { turiumRefDataStr } from '@/workflowEngine/helper';
 import handleSelector from '../handleSelector';
 
 const nanoid = customAlphabet('1234567890abcdef', 5);
@@ -55,13 +55,13 @@ async function handleConditionElement({ data, type, id, frameSelector }) {
 
 async function handleConditionCode({ data, refData }) {
   return new Promise((resolve, reject) => {
-    const varName = `automa${nanoid()}`;
+    const varName = `turium${nanoid()}`;
 
     const scriptEl = document.createElement('script');
     scriptEl.textContent = `
       (async () => {
         const ${varName} = ${JSON.stringify(refData)};
-        ${automaRefDataStr(varName)}
+        ${turiumRefDataStr(varName)}
         try {
           ${data.code}
         } catch (error) {
@@ -72,17 +72,17 @@ async function handleConditionCode({ data, refData }) {
         }
       })()
         .then((detail) => {
-          window.dispatchEvent(new CustomEvent('__automa-condition-code__', { detail }));
+          window.dispatchEvent(new CustomEvent('__turium-condition-code__', { detail }));
         });
     `;
 
     document.body.appendChild(scriptEl);
 
-    const handleAutomaEvent = ({ detail }) => {
+    const handleTuriumEvent = ({ detail }) => {
       scriptEl.remove();
       window.removeEventListener(
-        '__automa-condition-code__',
-        handleAutomaEvent
+        '__turium-condition-code__',
+        handleTuriumEvent
       );
 
       if (detail.$isError) {
@@ -93,7 +93,7 @@ async function handleConditionCode({ data, refData }) {
       resolve(detail);
     };
 
-    window.addEventListener('__automa-condition-code__', handleAutomaEvent);
+    window.addEventListener('__turium-condition-code__', handleTuriumEvent);
   });
 }
 
